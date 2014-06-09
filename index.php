@@ -16,7 +16,7 @@
 					<li class="backforward backwardLeft">
 						<div class="backwardLeftIcon"></div>
 					</li>
-					<li class="tubeTitle">
+					<li class="tubeTitle tubeTitleLeft">
 						<div class="tubeName">
 							<p>UNKNOWN ARTIST<br />MODERAT - MILK MP3...</p>
 						</div>
@@ -31,7 +31,7 @@
 					<li class="backforward backwardRight">
 						<div class="backwardRightIcon"></div>
 					</li>
-					<li class="tubeTitle">
+					<li class="tubeTitle tubeTitleRight">
 						<div class="tubeName">
 							<p>UNKNOWN ARTIST<br />MODERAT - MILK MP3...</p>
 						</div>
@@ -42,6 +42,10 @@
 				</ul>
 			</div>
 		</header><!-- End header Section-->
+		<section class="searchBox">
+			<div class="cancelButton">CANCEL</div>
+		</section>
+		
 		<section id="audioApi">
 			<div class="audioVisual">
 				<div class="tubeTime">00:00</div>

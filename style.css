@@ -59,6 +59,12 @@ header ul {
 	z-index: 1000;
 }
 
+li.tubeTitleLeft,
+li.tubeTitleRight {
+	width: 100%;
+	z-index: 100;
+}
+
 .backwardLeft,
 .backwardRight {
 	border-right: 2px solid #000;
@@ -107,6 +113,7 @@ header ul {
 }
 
 .tubeTitle {
+	cursor: pointer;
 	left: 0;
 	width: 100%;
 	z-index: 100;
@@ -124,11 +131,28 @@ header ul {
 	line-height: 1.4em;
 }
 
+/************
+	Search Box
+ ************/
+
+.searchBox {
+	background: #fff;
+	display:inline;
+	height: 100%;
+	position: fixed;
+	width: 100%;
+	z-index: 10000;
+}
+
+.cancelButton {
+	color: #ff2d55;
+	cursor: pointer;
+}
 
 
-/*
-Audio Visualiser Section
- */
+/************
+	Audio Visualiser Section
+ ************/
 
 #audioApi {
 	height: 78px;
@@ -171,9 +195,9 @@ Audio Visualiser Section
 	top: 10px;
 }
 
-/*
-Site Title Section
- */
+/************
+	Site Title Section
+ ************/
 #siteTitle {
 	height: 78px;
 	width: 100%;
