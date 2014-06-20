@@ -44,6 +44,20 @@
 		</header><!-- End header Section-->
 		<section class="searchBox">
 			<div class="cancelButton">CANCEL</div>
+<!--
+			<div id="buttons">
+				<label>
+					<input id="query" value='cats' type="text"/>
+					<button id="search-button" disabled onclick="search()">Search</button>
+				</label>
+			</div>
+			<div id="search-container"></div>
+-->
+
+		<input type="text" id="q">
+		<input type="button" id="search" value="search">
+		<ul id="list"></ul>
+
 		</section>
 		
 		<section id="audioApi">
@@ -92,6 +106,9 @@
 		</section>
 	</div>
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<!-- 	<script src="js/auth.js"></script> -->
+	<script src="js/search.js"></script>
+<!-- 	<script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script> -->
 	<script src="js/main.js"></script>
 	
 </body>
