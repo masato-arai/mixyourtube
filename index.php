@@ -42,12 +42,19 @@
 				</ul>
 			</div>
 		</header><!-- End header Section-->
-		<section class="searchBox">
+		<section class="searchBoxLeft">
 			<div class="cancelButton">CANCEL</div>
 			<input type="text" id="q">
-			<input type="button" id="search" value="search">
-			<ul id="list"></ul>
+			<input type="button" id="searchLeft" value="search">
+			<ul id="listLeft"></ul>
 		</section>
+		<section class="searchBoxRight">
+			<div class="cancelButton">CANCEL</div>
+			<input type="text" id="q">
+			<input type="button" id="searchRight" value="search">
+			<ul id="listRight"></ul>
+		</section>
+
 		
 		<section id="audioApi">
 			<div class="audioVisual">
@@ -65,12 +72,12 @@
 		<section id="video">
 			<div class="tubeVideo">
 				<div class="tubeLeft">
-					<div id="player"></div>
+					<div id="playerLeft"></div>
 				</div>
 			</div>
 			<div class="tubeVideo">
 				<div class="tubeRight">
-					<iframe class="tubeRight" src="//www.youtube.com/embed/nT2znG8cpnI?controls=0&showinfo=0&modestbranding=1&enablejsapi=1" frameborder="1" id="video"></iframe>
+					<div id="playerRight"></div>
 				</div>
 			</div>
 		</section><!-- End Video Section-->
@@ -95,9 +102,7 @@
 		</section>
 	</div>
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-<!-- 	<script src="js/auth.js"></script> -->
 	<script src="js/search.js"></script>
-<!-- 	<script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script> -->
 	<script src="js/main.js"></script>
 	<script src="https://www.youtube.com/iframe_api"></script>
 	

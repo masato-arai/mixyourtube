@@ -135,7 +135,8 @@ li.tubeTitleRight {
 	Search Box
  ************/
 
-.searchBox {
+.searchBoxLeft,
+.searchBoxRight {
 	background: #fff;
 	color: #000;
 	display:inline;

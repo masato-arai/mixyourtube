@@ -13,15 +13,21 @@ $(window).bind("load", function() {
 	});
 
 	//Search Box ON OFF Animation
-	var search = ".searchBox";
 	$(function() {
+		var search = ".searchBoxLeft, .searchBoxRight";
+		var searchLeft = ".searchBoxLeft";
+		var searchRight = ".searchBoxRight";
 		$(search).css({ bottom: -winHeight });
 		$(".tubeTitleLeft").click(function() {
-			$(search).animate({ bottom: 0 });
+			$(searchLeft).animate({ bottom: 0 });
+		});
+		$(".tubeTitleRight").click(function() {
+			$(searchRight).animate({ bottom: 0 });
 		});
 		$(".cancelButton").click(function() {
 			$(search).animate({ bottom: -winHeight });
 		});
+
 	});
 
 });
