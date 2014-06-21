@@ -76,7 +76,8 @@
 		<section id="video">
 			<div class="tubeVideo">
 				<div class="tubeLeft">
-					<iframe class="tubeLeft" src="//www.youtube.com/embed/bUlfAOTBX9g?controls=0&showinfo=0&modestbranding=1&enablejsapi=1" frameborder="1" id="video"></iframe>
+				<div id="player"></div>
+<!-- 					<iframe class="tubeLeft" src="//www.youtube.com/embed/bUlfAOTBX9g?controls=0&showinfo=0&modestbranding=1&enablejsapi=1" frameborder="1" id="video"></iframe> -->
 				</div>
 			</div>
 			<div class="tubeVideo">
@@ -110,6 +111,7 @@
 	<script src="js/search.js"></script>
 <!-- 	<script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script> -->
 	<script src="js/main.js"></script>
+	<script src="https://www.youtube.com/iframe_api"></script>
 	
 </body>
 </html>

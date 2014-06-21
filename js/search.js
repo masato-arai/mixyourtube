@@ -1,41 +1,4 @@
-// After the API loads, call a function to enable the search box.
-/*
-function handleAPILoaded() {
-  $('#search-button').attr('disabled', false);
-}
-
-
-// Search for a specified string.
-function search() {
-  var q = $('#query').val();
-  gapi.client.setApiKey('AIzaSyCeeSBYijxztGdXc1X8qeSFYTZZUZ6YSXg');
-  var request = gapi.client.youtube.search.list({
-    q: q,
-    part: 'snippet',
-    maxResults: 25
-  });
-
-  request.execute(function(response) {
-    var str = JSON.stringify(response.result);
-    $('#search-container').html('<pre>' + str + '</pre>');
-  });
-}
-*/
-
-/*
-function searchByKeyword() {
-  var results = YouTube.Search.list('id,snippet', {
-    q: 'dogs',
-    maxResults: 25
-  });
-
-  for (var i = 0; i < results.items.length; i++) {
-    var item = results.items[i];
-    Logger.log('[%s] Title: %s', item.id.videoId, item.snippet.title);
-  }
-}
-*/
-
+var player;
 
 $(function() {
 	$('#search').click(function() {
@@ -43,7 +6,7 @@ $(function() {
 		var options = {
 			"q": $('#q').val(),
 			"alt": "json",
-			"max-results": 10,
+			"max-results": 20,
 			"v": 2
 		};
 		
@@ -63,11 +26,9 @@ $(function() {
 	});
 });
 
-
-
-
-
-
-
-
-
+function onYouTubeIframeAPIReady() {
+	player = new YT.Player('player', {
+		height: 100,
+		width: 100
+	});
+}
