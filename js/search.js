@@ -22,13 +22,15 @@ $(function() {
 				);
 			}
 		}, "json");
-	
 	});
+	
+	$(document).on('click', 'li.movie', function() {
+		player.cueVideoById($(this).data('video-id'));
+	});
+	
 });
 
-function onYouTubeIframeAPIReady() {
+function onYouTubePlayerAPIReady() {
 	player = new YT.Player('player', {
-		height: 100,
-		width: 100
 	});
 }

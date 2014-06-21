@@ -44,20 +44,9 @@
 		</header><!-- End header Section-->
 		<section class="searchBox">
 			<div class="cancelButton">CANCEL</div>
-<!--
-			<div id="buttons">
-				<label>
-					<input id="query" value='cats' type="text"/>
-					<button id="search-button" disabled onclick="search()">Search</button>
-				</label>
-			</div>
-			<div id="search-container"></div>
--->
-
-		<input type="text" id="q">
-		<input type="button" id="search" value="search">
-		<ul id="list"></ul>
-
+			<input type="text" id="q">
+			<input type="button" id="search" value="search">
+			<ul id="list"></ul>
 		</section>
 		
 		<section id="audioApi">
@@ -76,8 +65,7 @@
 		<section id="video">
 			<div class="tubeVideo">
 				<div class="tubeLeft">
-				<div id="player"></div>
-<!-- 					<iframe class="tubeLeft" src="//www.youtube.com/embed/bUlfAOTBX9g?controls=0&showinfo=0&modestbranding=1&enablejsapi=1" frameborder="1" id="video"></iframe> -->
+					<div id="player"></div>
 				</div>
 			</div>
 			<div class="tubeVideo">
