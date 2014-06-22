@@ -29,15 +29,5 @@ $(window).bind("load", function() {
 	});
 
 
-	//Play button changes to Pause button when it is clicked
-/*
-	var controlButton = '.controlButton';
-	var playLeft = '.playLeft';
-	var playRight = '.playRight';
-	$(playLeft).click(function() {
-		console.log('foo');
-		$('.playLeftIcon').css('background-position-x','-60px');
-	});
-*/
 
 });

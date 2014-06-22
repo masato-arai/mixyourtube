@@ -62,7 +62,7 @@ function onPlayerStateChange(e){
 	if (e.data == YT.PlayerState.PLAYING) { // if video is playing
 		$('.playLeftIcon').css('background-position-x','-60px'); // change the play icon
 		$(".playLeft").on('click', function() {
-			player.stopVideo();
+			player.pauseVideo();
 		});
 	} else {
 		$('.playLeftIcon').css('background-position-x','-90px');
