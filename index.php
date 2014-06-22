@@ -83,7 +83,7 @@
 		</section><!-- End Video Section-->
 		<section id="controller">
 			<ul>
-				<li class="controlButton playLeft">
+				<li class="controlButton playLeft" onclick="player.playVideo(); return false">
 					<div class="playLeftIcon"></div>
 				</li>
 				<li class="controlButton volumeLeft">
@@ -91,9 +91,10 @@
 				</li>
 				<li class="controlFader faderLeft"></li>
 				<li class="controlFader faderRight"></li>
-				<li class="controlButton playRight">
-					<div class="playRightIcon"></div>
-				</li>
+					<li class="controlButton playRight" onclick="player2.playVideo(); return false">
+						<div class="playRightIcon"></div>
+					</li>
+				
 				<li class="controlButton volumeRight">
 					<div class="volumeRightIcon"></div>
 				</li>

@@ -8,7 +8,7 @@ $(function() {
 		var options = {
 			"q": $('#q').val(),
 			"alt": "json",
-			"max-results": 20,
+			"max-results": 3,
 			"v": 2
 		};
 		
