@@ -49,7 +49,25 @@ $(function() {
 
 function onYouTubePlayerAPIReady() {
 	player = new YT.Player('playerLeft', {
+		playerVars: {controls: 0, rel: 0},
+		events: {'onStateChange': onPlayerStateChange}
 	});
 	player2 = new YT.Player('playerRight', {
+		playerVars: {controls: 0, rel: 0},
+		events: {'onStateChange': onPlayerStateChange}
 	});
+}
+
+function onPlayerStateChange(e){
+	if (e.data == YT.PlayerState.PLAYING) { // if video is playing
+		$('.playLeftIcon').css('background-position-x','-60px'); // change the play icon
+		$(".playLeft").on('click', function() {
+			player.stopVideo();
+		});
+	} else {
+		$('.playLeftIcon').css('background-position-x','-90px');
+		$(".playLeft").on('click', function() {
+			player.playVideo();
+		});
+	}
 }

@@ -1,5 +1,6 @@
 // Window load event used just in case window height is dependant upon images
 $(window).bind("load", function() { 
+	// setup the height depends on the screen size
 	var winHeight = $(window).height();
 	// set initial div height / width
 	$('#video').css({
@@ -13,21 +14,30 @@ $(window).bind("load", function() {
 	});
 
 	//Search Box ON OFF Animation
-	$(function() {
-		var search = ".searchBoxLeft, .searchBoxRight";
-		var searchLeft = ".searchBoxLeft";
-		var searchRight = ".searchBoxRight";
-		$(search).css({ bottom: -winHeight });
-		$(".tubeTitleLeft").click(function() {
-			$(searchLeft).animate({ bottom: 0 });
-		});
-		$(".tubeTitleRight").click(function() {
-			$(searchRight).animate({ bottom: 0 });
-		});
-		$(".cancelButton").click(function() {
-			$(search).animate({ bottom: -winHeight });
-		});
-
+	var search = ".searchBoxLeft, .searchBoxRight";
+	var searchLeft = ".searchBoxLeft";
+	var searchRight = ".searchBoxRight";
+	$(search).css({ bottom: -winHeight });
+	$(".tubeTitleLeft").click(function() {
+		$(searchLeft).animate({ bottom: 0 });
 	});
+	$(".tubeTitleRight").click(function() {
+		$(searchRight).animate({ bottom: 0 });
+	});
+	$(".cancelButton").click(function() {
+		$(search).animate({ bottom: -winHeight });
+	});
+
+
+	//Play button changes to Pause button when it is clicked
+/*
+	var controlButton = '.controlButton';
+	var playLeft = '.playLeft';
+	var playRight = '.playRight';
+	$(playLeft).click(function() {
+		console.log('foo');
+		$('.playLeftIcon').css('background-position-x','-60px');
+	});
+*/
 
 });
