@@ -92,7 +92,7 @@
 					<div class="volumeLeftIcon"></div>
 				</li>
 				<div class="volumeLeftBg">
-					<div id="slider-vertical"></div>
+					<div id="leftSliderVertical"></div>
 				</div>
 				<li class="controlFader faderLeft"></li>
 				<li class="controlFader faderRight"></li>
@@ -100,9 +100,11 @@
 					<div class="playRightIcon"></div>
 				</li>				
 				<li class="controlButton volumeRight">
-					<div class="volumeRightBg"></div>
 					<div class="volumeRightIcon"></div>
 				</li>
+				<div class="volumeRightBg">
+					<div id="rightSliderVertical"></div>
+				</div>
 				<div class="faderIcon"></div>
 			</ul>
 		</section>

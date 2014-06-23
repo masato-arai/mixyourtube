@@ -36,14 +36,14 @@ $(window).bind("load", function() {
 	}, function() {
 		$(volLeftBg).animate({ bottom: -98 }, 200);
 	});
-	$(".volumeRight").hover(function() {
+	$(".volumeRight, .volumeRightBg").hover(function() {
 		$(volRightBg).stop(true, false).animate({ bottom: 78 }, 200);
 	}, function() {
 		$(volRightBg).animate({ bottom: -98 }, 200);
 	});
 
 	// volume slider jquery UI
-	$( "#slider-vertical" ).slider({
+	$( "#leftSliderVertical, #rightSliderVertical" ).slider({
 		orientation: "vertical",
 		range: "min",
 		min: 0,
@@ -53,6 +53,6 @@ $(window).bind("load", function() {
 			$( "#amount" ).val( ui.value );
 		}
 	});
-	$( "#amount" ).val( $( "#slider-vertical" ).slider( "value" ) );
+	$( "#amount" ).val( $( "#leftSliderVertical, #rightSliderVertical" ).slider( "value" ) );
 
 });

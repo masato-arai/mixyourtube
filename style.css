@@ -310,7 +310,23 @@ li.volumeLeft,
 	margin-left: 2px;
 }
 
-#slider-vertical {
+li.playRight {
+	background: #99dbe8;
+	right: 118px;
+}
+
+li.volumeRight,
+.volumeRightBg {
+	background: #00d5b9;
+	right: 0;
+}
+
+.volumeRightBg {
+	margin-right: 0;
+}
+
+#leftSliderVertical,
+#rightSliderVertical {
 	height: 115px;
 	margin: 30px auto;
 	width: 8px;
@@ -341,21 +357,6 @@ li.volumeLeft,
 
 .ui-widget-header {
 	background: inherit;
-}
-
-li.playRight {
-	background: #99dbe8;
-	right: 118px;
-}
-
-li.volumeRight,
-.volumeRightBg {
-	background: #00d5b9;
-	right: 0;
-}
-
-.volumeRightBg {
-	margin-right: 0;
 }
 
 li.faderLeft {
