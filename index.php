@@ -6,6 +6,8 @@
 	<meta name="viewport" content="user-scalable=0, initial-scale=1.0">
 	<title>mixtube</title>
 	<link href="css/normalize.css" rel="stylesheet">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	
 	<link href="style.css" rel="stylesheet">
 </head>
 <body>
@@ -87,9 +89,11 @@
 					<div class="playLeftIcon"></div>
 				</li>
 				<li class="controlButton volumeLeft">
-					<div class="volumeLeftBg"></div>
 					<div class="volumeLeftIcon"></div>
 				</li>
+				<div class="volumeLeftBg">
+					<div id="slider-vertical" style="height:100px;"></div>
+				</div>
 				<li class="controlFader faderLeft"></li>
 				<li class="controlFader faderRight"></li>
 				<li class="controlButton playRight" onclick="player2.playVideo(); return false">
@@ -103,10 +107,11 @@
 			</ul>
 		</section>
 	</div>
-	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	<script src="//code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="js/search.js"></script>
 	<script src="js/main.js"></script>
-	<script src="https://www.youtube.com/iframe_api"></script>
+	<script src="//www.youtube.com/iframe_api"></script>
 	
 </body>
 </html>
