@@ -36,6 +36,7 @@ $(function() {
 	
 	$(document).on('click', 'li.movieLeft', function() {
 		player.cueVideoById($(this).data('video-id'));
+		player.setVolume(100);
 		$(".searchBoxLeft").animate({ bottom: -winHeight });
 	});
 
@@ -50,7 +51,7 @@ $(function() {
 function onYouTubePlayerAPIReady() {
 	player = new YT.Player('playerLeft', {
 		playerVars: {controls: 0, rel: 0},
-		events: {'onStateChange': onPlayerStateChange}
+		events: {'onStateChange': onPlayerStateChange},
 	});
 	player2 = new YT.Player('playerRight', {
 		playerVars: {controls: 0, rel: 0},
@@ -71,3 +72,4 @@ function onPlayerStateChange(e){
 		});
 	}
 }
+

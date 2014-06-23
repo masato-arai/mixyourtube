@@ -293,9 +293,17 @@ li.playRight {
 	border-right: 2px solid #000;
 }
 
-li.volumeLeft {
+li.volumeLeft,
+.volumeLeftBg {
 	background: #f49d15;
 	left: 118px;
+}
+
+.volumeLeftBg {
+	height: 156px;
+	position: fixed;
+	margin-left: 2px;
+	width: 118px;
 }
 
 li.playRight {
@@ -303,9 +311,17 @@ li.playRight {
 	right: 118px;
 }
 
-li.volumeRight {
+li.volumeRight,
+.volumeRightBg {
 	background: #00d5b9;
 	right: 0;
+}
+
+.volumeRightBg {
+	height: 156px;
+	position: fixed;
+	margin-right: 0;
+	width: 118px;
 }
 
 li.faderLeft {

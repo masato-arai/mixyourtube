@@ -28,6 +28,18 @@ $(window).bind("load", function() {
 		$(search).animate({ bottom: -winHeight });
 	});
 
-
+	// volume background animation
+	var volLeftBg = ".volumeLeftBg";
+	var volRightBg = ".volumeRightBg";
+	$(".volumeLeft").hover(function() {
+		$(volLeftBg).stop(true, false).animate({ bottom: 78 }, 200);
+	}, function() {
+		$(volLeftBg).animate({ bottom: -78 }, 200);
+	});
+	$(".volumeRight").hover(function() {
+		$(volRightBg).stop(true, false).animate({ bottom: 78 }, 200);
+	}, function() {
+		$(volRightBg).animate({ bottom: -78 }, 200);
+	});
 
 });

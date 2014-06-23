@@ -87,6 +87,7 @@
 					<div class="playLeftIcon"></div>
 				</li>
 				<li class="controlButton volumeLeft">
+					<div class="volumeLeftBg"></div>
 					<div class="volumeLeftIcon"></div>
 				</li>
 				<li class="controlFader faderLeft"></li>
@@ -95,6 +96,7 @@
 					<div class="playRightIcon"></div>
 				</li>				
 				<li class="controlButton volumeRight">
+					<div class="volumeRightBg"></div>
 					<div class="volumeRightIcon"></div>
 				</li>
 				<div class="faderIcon"></div>
