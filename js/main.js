@@ -31,15 +31,15 @@ $(window).bind("load", function() {
 	// volume background animation
 	var volLeftBg = ".volumeLeftBg";
 	var volRightBg = ".volumeRightBg";
-	$(".volumeLeft").hover(function() {
+	$(".volumeLeft, .volumeLeftBg").hover(function() {
 		$(volLeftBg).stop(true, false).animate({ bottom: 78 }, 200);
 	}, function() {
-		$(volLeftBg).animate({ bottom: -78 }, 200);
+		$(volLeftBg).animate({ bottom: -98 }, 200);
 	});
 	$(".volumeRight").hover(function() {
 		$(volRightBg).stop(true, false).animate({ bottom: 78 }, 200);
 	}, function() {
-		$(volRightBg).animate({ bottom: -78 }, 200);
+		$(volRightBg).animate({ bottom: -98 }, 200);
 	});
 
 	// volume slider jquery UI

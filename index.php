@@ -92,7 +92,7 @@
 					<div class="volumeLeftIcon"></div>
 				</li>
 				<div class="volumeLeftBg">
-					<div id="slider-vertical" style="height:100px;"></div>
+					<div id="slider-vertical"></div>
 				</div>
 				<li class="controlFader faderLeft"></li>
 				<li class="controlFader faderRight"></li>

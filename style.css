@@ -299,11 +299,48 @@ li.volumeLeft,
 	left: 118px;
 }
 
-.volumeLeftBg {
-	height: 156px;
+.volumeLeftBg,
+.volumeRightBg {
+	height: 176px;
 	position: fixed;
-	margin-left: 2px;
 	width: 118px;
+}
+
+.volumeLeftBg {
+	margin-left: 2px;
+}
+
+#slider-vertical {
+	height: 115px;
+	margin: 30px auto;
+	width: 8px;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default {
+	background: #fff;
+	border: none;
+	height: 30px;
+	width: 30px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	-webkit-box-shadow: 0px 4px 11px 0px rgba(47, 50, 50, 0.3);
+	-moz-box-shadow: 0px 4px 11px 0px rgba(47, 50, 50, 0.3);
+	box-shadow: 0px 4px 11px 0px rgba(47, 50, 50, 0.3);
+}
+
+.ui-slider-vertical .ui-slider-handle {
+	left: -.6em;
+}
+
+.ui-widget-content {
+	background: #fff;
+	border: inherit;
+}
+
+.ui-widget-header {
+	background: inherit;
 }
 
 li.playRight {
@@ -318,10 +355,7 @@ li.volumeRight,
 }
 
 .volumeRightBg {
-	height: 156px;
-	position: fixed;
 	margin-right: 0;
-	width: 118px;
 }
 
 li.faderLeft {
