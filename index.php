@@ -7,8 +7,7 @@
 	<title>mixtube</title>
 	<link href="css/normalize.css" rel="stylesheet">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-	
-	<link href="style.css" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<div id="wrapper">

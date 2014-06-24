@@ -369,6 +369,28 @@ li.faderRight {
 	right: 0;
 }
 
+#faderSlider.ui-widget-content {
+	background: #000;
+	border-radius: inherit;
+	height: 78px;
+	margin: 0 auto;	
+	width: 100%;
+}
+
+#faderSlider .ui-state-default, 
+#faderSlider .ui-widget-content .ui-state-default {
+	background: url(images/faderIcon.png);
+	height: 78px;
+	width: 26px;
+	-webkit-box-shadow: inherit;
+	-moz-box-shadow: inherit;
+	box-shadow: inherit;
+}
+
+#faderSlider.ui-slider-horizontal .ui-slider-handle {
+	top: inherit;
+}
+
 .playLeftIcon,
 .volumeLeftIcon,
 .playRightIcon,
