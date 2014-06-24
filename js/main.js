@@ -55,4 +55,7 @@ $(window).bind("load", function() {
 	});
 	$( "#amount" ).val( $( "#leftSliderVertical, #rightSliderVertical" ).slider( "value" ) );
 
+	// fader
+	$( "#faderSlider" ).slider();
+
 });

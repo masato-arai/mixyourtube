@@ -105,7 +105,8 @@
 				<div class="volumeRightBg">
 					<div id="rightSliderVertical"></div>
 				</div>
-				<div class="faderIcon"></div>
+				<div id="faderSlider"></div>
+<!-- 				<div class="faderIcon"></div> -->
 			</ul>
 		</section>
 	</div>
