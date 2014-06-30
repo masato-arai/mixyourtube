@@ -169,7 +169,7 @@ li.tubeTitleRight {
 }
 
 .audioLeft {
-	background: url(images/visualiserLeft.png);
+	/* background: url(images/visualiserLeft.png); */
 	border-right: 1px solid #000;
 }
 
@@ -190,7 +190,7 @@ li.tubeTitleRight {
 	font-weight: 100;
 	font-size: 18px;
 	height: 20px;
-	left: 10px;
+	right: 10px;
 	letter-spacing: .04em;
 	position: absolute;
 	text-align: left;

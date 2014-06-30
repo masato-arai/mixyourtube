@@ -60,7 +60,9 @@
 		<section id="audioApi">
 			<div class="audioVisual">
 				<div class="tubeTime">00:00</div>
-				<div class="audioLeft"></div>
+				<div class="audioLeft">
+					<canvas id="canvas" width="1000" height="325" style="display: block; width:1000px; height:78px;"></canvas>
+				</div>
 			</div>
 			<div class="audioVisual">
 				<div class="tubeTime">00:00</div>
@@ -111,6 +113,7 @@
 	</div>
 	<script src="//code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="js/audioAnalyser.js"></script>
 	<script src="js/search.js"></script>
 	<script src="js/main.js"></script>
 	<script src="//www.youtube.com/iframe_api"></script>
