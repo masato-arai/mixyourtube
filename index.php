@@ -61,7 +61,7 @@
 			<div class="audioVisual">
 				<div class="tubeTime">00:00</div>
 				<div class="audioLeft">
-					<canvas id="canvas" width="1000" height="325" style="display: block; width:1000px; height:78px;"></canvas>
+					<canvas id="canvas" width="730" height="325"></canvas>
 				</div>
 			</div>
 			<div class="audioVisual">

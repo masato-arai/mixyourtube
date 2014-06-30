@@ -99,6 +99,6 @@ function drawSpectrum(array) {
 		var value = array[i];
 	
 		ctx.fillRect(i*5,325-value,3,325);
-		//  console.log([i,value])
+		// console.log([i,value])
 	}
 };

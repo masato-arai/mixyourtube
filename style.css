@@ -197,6 +197,12 @@ li.tubeTitleRight {
 	top: 10px;
 }
 
+#canvas {
+	display: block;
+	height: 78px;
+	width: 100%;
+}
+
 /************
 	Site Title Section
  ************/
@@ -370,11 +376,11 @@ li.faderRight {
 }
 
 #faderSlider.ui-widget-content {
-	background: #000;
+	background: #ccc;
 	border-radius: inherit;
 	height: 78px;
 	margin: 0 auto;	
-	width: 40%;
+	width: 100%;
 }
 
 #faderSlider .ui-state-default, 
