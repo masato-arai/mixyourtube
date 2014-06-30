@@ -59,13 +59,13 @@
 		
 		<section id="audioApi">
 			<div class="audioVisual">
-				<div class="tubeTime">00:00</div>
+				<div class="tubeTime"></div>
 				<div class="audioLeft">
 					<canvas id="canvas" width="730" height="325"></canvas>
 				</div>
 			</div>
 			<div class="audioVisual">
-				<div class="tubeTime">00:00</div>
+				<div class="tubeTime"></div>
 				<div class="audioRight"></div>
 			</div>
 		</section><!-- End Audio API Section-->
