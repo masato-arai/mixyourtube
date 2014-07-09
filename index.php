@@ -12,36 +12,6 @@
 <body>
 	<div id="wrapper">
 		<header>
-			<div class="headerLeft">
-				<ul>
-					<li class="backforward backwardLeft">
-						<div class="backwardLeftIcon"></div>
-					</li>
-					<li class="tubeTitle tubeTitleLeft">
-						<div class="tubeName">
-							<p>UNKNOWN ARTIST<br />MODERAT - MILK MP3...</p>
-						</div>
-					</li>
-					<li class="backforward forwardLeft">
-						<div class="forwardLeftIcon"></div>
-					</li>
-				</ul>
-			</div>
-			<div class="headerRight">
-				<ul>
-					<li class="backforward backwardRight">
-						<div class="backwardRightIcon"></div>
-					</li>
-					<li class="tubeTitle tubeTitleRight">
-						<div class="tubeName">
-							<p>UNKNOWN ARTIST<br />MODERAT - MILK MP3...</p>
-						</div>
-					</li>
-					<li class="backforward forwardRight">
-						<div class="forwardRightIcon"></div>
-					</li>
-				</ul>
-			</div>
 		</header><!-- End header Section-->
 		<section class="searchBoxLeft">
 			<div class="cancelButton">CANCEL</div>
@@ -57,18 +27,6 @@
 		</section>
 
 		
-		<section id="audioApi">
-			<div class="audioVisual">
-				<div class="tubeTime"></div>
-				<div class="audioLeft">
-					<canvas id="canvas" width="730" height="325"></canvas>
-				</div>
-			</div>
-			<div class="audioVisual">
-				<div class="tubeTime"></div>
-				<div class="audioRight"></div>
-			</div>
-		</section><!-- End Audio API Section-->
 		<section id="siteTitle">
 			<h1>mixtube</h1>
 		</section><!-- End Site Title Section-->
@@ -86,28 +44,9 @@
 		</section><!-- End Video Section-->
 		<section id="controller">
 			<ul>
-				<li class="controlButton playLeft">
-					<div class="playLeftIcon"></div>
-				</li>
-				<li class="controlButton volumeLeft">
-					<div class="volumeLeftIcon"></div>
-				</li>
-				<div class="volumeLeftBg">
-					<div id="leftSliderVertical"></div>
-				</div>
 				<li class="controlFader faderLeft"></li>
 				<li class="controlFader faderRight"></li>
-				<li class="controlButton playRight" onclick="player2.playVideo(); return false">
-					<div class="playRightIcon"></div>
-				</li>				
-				<li class="controlButton volumeRight">
-					<div class="volumeRightIcon"></div>
-				</li>
-				<div class="volumeRightBg">
-					<div id="rightSliderVertical"></div>
-				</div>
 				<div id="faderSlider"></div>
-<!-- 				<div class="faderIcon"></div> -->
 			</ul>
 		</section>
 	</div>
