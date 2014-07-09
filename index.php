@@ -44,8 +44,6 @@
 		</section><!-- End Video Section-->
 		<section id="controller">
 			<ul>
-				<li class="controlFader faderLeft"></li>
-				<li class="controlFader faderRight"></li>
 				<div id="faderSlider"></div>
 			</ul>
 		</section>
