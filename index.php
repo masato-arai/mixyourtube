@@ -12,6 +12,9 @@
 <body>
 	<div id="wrapper">
 		<header>
+			<section id="siteTitle">
+				<h1>/ MIXYOURTUBE</h1>
+			</section><!-- End Site Title Section-->
 		</header><!-- End header Section-->
 		<section class="searchBoxLeft">
 			<div class="cancelButton">CANCEL</div>
@@ -26,20 +29,13 @@
 			<ul id="listRight"></ul>
 		</section>
 
-		
-		<section id="siteTitle">
-			<h1>mixtube</h1>
-		</section><!-- End Site Title Section-->
 		<section id="video">
-			<div class="tubeVideo">
-				<div class="tubeLeft">
-					<div id="playerLeft"></div>
-				</div>
+			
+			<div class="tubeVideo tubeLeft">
+				<div id="playerLeft"></div>
 			</div>
-			<div class="tubeVideo">
-				<div class="tubeRight">
-					<div id="playerRight"></div>
-				</div>
+			<div class="tubeVideo tubeRight">
+				<div id="playerRight"></div>
 			</div>
 		</section><!-- End Video Section-->
 		<section id="controller">
@@ -50,7 +46,6 @@
 	</div>
 	<script src="//code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-	<script src="js/audioAnalyser.js"></script>
 	<script src="js/search.js"></script>
 	<script src="js/main.js"></script>
 	<script src="//www.youtube.com/iframe_api"></script>

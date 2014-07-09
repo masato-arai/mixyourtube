@@ -42,33 +42,6 @@ $(window).bind("load", function() {
 		$(search).animate({ bottom: -winHeight });
 	});
 
-	// volume background animation
-	var volLeftBg = ".volumeLeftBg";
-	var volRightBg = ".volumeRightBg";
-	$(".volumeLeft, .volumeLeftBg").hover(function() {
-		$(volLeftBg).stop(true, false).animate({ bottom: 78 }, 200);
-	}, function() {
-		$(volLeftBg).animate({ bottom: -98 }, 200);
-	});
-	$(".volumeRight, .volumeRightBg").hover(function() {
-		$(volRightBg).stop(true, false).animate({ bottom: 78 }, 200);
-	}, function() {
-		$(volRightBg).animate({ bottom: -98 }, 200);
-	});
-
-	// volume slider jquery UI
-	$( "#leftSliderVertical, #rightSliderVertical" ).slider({
-		orientation: "vertical",
-		range: "min",
-		min: 0,
-		max: 100,
-		value: 60,
-		slide: function( event, ui ) {
-			$( "#amount" ).val( ui.value );
-		}
-	});
-	$( "#amount" ).val( $( "#leftSliderVertical, #rightSliderVertical" ).slider( "value" ) );
-
 	// fader
 	$( "#faderSlider" ).slider();
 
