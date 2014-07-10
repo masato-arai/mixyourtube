@@ -2,8 +2,6 @@
 $(window).bind("load", function() { 
 	// setup the height depends on the screen size
 	var winHeight = $(window).height();
-	var winWidth = $(window).width();
-	console.log(winWidth);
 	// set initial div height / width
 	$('#video').css({
 		'height': winHeight - 312,
@@ -14,18 +12,6 @@ $(window).bind("load", function() {
 			'height': winHeight - 312,
 		});
 	});
-
-	// set initial div height / width
-	$('.ui-widget-content').css({
-		'width': winWidth - 482,
-	});
-	// make sure div stays full width/height on resize
-	$(window).resize(function(){
-		$('.ui-widget-content').css({
-			'width': winWidth - 482,
-		});
-	});
-
 
 	//Search Box ON OFF Animation
 	var search = ".searchBoxLeft, .searchBoxRight";

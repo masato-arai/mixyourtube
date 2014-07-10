@@ -13,7 +13,7 @@
 	<div id="wrapper">
 		<header>
 			<section id="siteTitle">
-				<h1>/ MIXYOURTUBE</h1>
+				<h1>/MIXYOURTUBE</h1>
 			</section><!-- End Site Title Section-->
 		</header><!-- End header Section-->
 		<section class="searchBoxLeft">
@@ -39,9 +39,7 @@
 			</div>
 		</section><!-- End Video Section-->
 		<section id="controller">
-			<ul>
-				<div id="faderSlider"></div>
-			</ul>
+			<div id="faderSlider"></div>
 		</section>
 	</div>
 	<script src="//code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
