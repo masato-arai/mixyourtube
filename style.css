@@ -50,10 +50,13 @@ header ul {
 
 .tubeTitle {
 	cursor: pointer;
+	font-family: 'Varela Round', sans-serif;
+	font-size: 20px;
 	left: 0;
 	width: 100%;
 	z-index: 100;
 }
+
 
 .tubeName {
 	background: none;
@@ -105,7 +108,6 @@ header ul {
 }
 
 .tubeTime {
-	font-family: Helvetica;
 	font-weight: 100;
 	font-size: 18px;
 	height: 20px;
@@ -126,15 +128,17 @@ header ul {
 }
 
 #siteTitle h1 {
-	color: #000;
+	font-family: 'Varela Round', sans-serif;
 	font-size: 30pt;
-	font-weight: bold;
-	letter-spacing: .06em;
+	letter-spacing: .04em;
 	text-align: left;
 	text-transform: uppercase;
-	-webkit-text-stroke-width: 2px;	
+/*
+	-webkit-text-stroke-width: 2px;
 	-webkit-text-stroke-color: #fff;
 	-webkit-text-fill-color: transparent;
+	-webkit-font-smoothing: antialiased;
+*/
 }
 
 /*
@@ -167,7 +171,7 @@ header ul {
 .tubeVideo iframe {
 	border: none;
 	position: absolute;
-	top: 0;
+	top: 70px;
 	left: 0;
 	width: 100%;
 	height: 100%;

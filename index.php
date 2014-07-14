@@ -5,7 +5,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="user-scalable=0, initial-scale=1.0">
 	<title>mixtube</title>
-	<link href="css/normalize.css" rel="stylesheet">
+	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Varela+Round'>
+	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" href="style.css">
 </head>
@@ -22,16 +23,17 @@
 			<input type="button" id="searchLeft" value="search">
 			<ul id="listLeft"></ul>
 		</section>
+<!--
 		<section class="searchBoxRight">
 			<div class="cancelButton">CANCEL</div>
 			<input type="text" id="q">
 			<input type="button" id="searchRight" value="search">
 			<ul id="listRight"></ul>
 		</section>
-
+-->
 		<section id="video">
-			
 			<div class="tubeVideo tubeLeft">
+				<div class="tubeTitle tubeTitleLeft">BLUE HAWAII IN TWO (PT. II)</div>
 				<div id="playerLeft"></div>
 			</div>
 			<div class="tubeVideo tubeRight">

@@ -63,17 +63,26 @@ $(function() {
 });
 
 
-
 function onYouTubePlayerAPIReady() {
+
 	player = new YT.Player('playerLeft', {
-		playerVars: {controls: 0, rel: 0},
+		playerVars: {
+			autohide: 0, // 0:default 1:mouseover 2:show
+			controls: 0, // 0:hide 1:show(default)
+			modestbranding: 0, //Youtube Logo on player 0:show 1:hide
+			rel: 0 //related video 0:hide 1:show(default)
+		},
 		events: {'onStateChange': onPlayerStateChange},
 	});
 	player2 = new YT.Player('playerRight', {
 		playerVars: {controls: 0, rel: 0},
 		events: {'onStateChange': onPlayerStateChange}
 	});
+
 }
+
+
+
 
 function onPlayerStateChange(e){
 	if (e.data == YT.PlayerState.PLAYING) { // if video is playing
