@@ -1,16 +1,36 @@
 var winHeight = $(window).height();
 var player;
 var player2;
+var mainCtrl = function($scope, $http) {
+	$scope.doSearch = function() {
+		var url = "https://gdata.youtube.com/feeds/api/videos?"
+	+ [
+		'q=' + encodeURIComponent($scope.query),
+		'alt=json',
+		'max-results=5',
+		'v=2',
+		'callback=JSON_CALLBACK'
+	].join('&');
+	$http.jsonp(url).success(function(data) {
+		console.dir(data);
+		$scope.results = data.feed.entry;
+	});
+	}
+}
+
+
 $(function() {
+
+/*
 	$('#searchLeft, #searchRight').click(function() {
 		var url = "https://gdata.youtube.com/feeds/api/videos";
 		var options = {
 			"q": $('#q').val(),
 			"alt": "json",
-			"max-results": 3,
+			"max-results": 5,
 			"v": 2
 		};
-		
+
 		$.get(url, options, function(rs) {
 			console.log(rs);
 			$('#listLeft, #listRight').empty();
@@ -29,9 +49,17 @@ $(function() {
 				);
 			}
 		}, "json");
-		
 	});
-
+*/
+	// Retrieve the next page of videos in the playlist.
+	function nextPage() {
+		requestVideoPlaylist(playlistId, nextPageToken);
+	}
+	
+	// Retrieve the previous page of videos in the playlist.
+	function previousPage() {
+		requestVideoPlaylist(playlistId, prevPageToken);
+	}
 	
 	$(document).on('click', 'li.movieLeft', function() {
 		player.cueVideoById($(this).data('video-id'));

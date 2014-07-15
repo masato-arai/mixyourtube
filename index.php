@@ -1,6 +1,6 @@
 <? ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="user-scalable=0, initial-scale=1.0">
@@ -19,9 +19,27 @@
 		</header><!-- End header Section-->
 		<section class="searchBoxLeft">
 			<div class="cancelButton">CANCEL</div>
-			<input type="text" id="q">
-			<input type="button" id="searchLeft" value="search">
-			<ul id="listLeft"></ul>
+			<div ng-controller="mainCtrl">
+				<form ng-submit="doSearch()" name="myForm">
+					<input type="text" ng-model="query" required>
+					<!-- <input type="submit" value="search" ng-disabled="myFrom.$invalid"> -->
+				</form>
+				<ul ng-show="results.length">
+					<li ng-repeat="result in results">
+						<img ng-src="{{result.media$group.media$thumbnail[0].url}}">
+						<p>
+							{{result.title.$t}}<br />
+							by {{result.author[0].name.$t}} • {{result.published.$t}} • {{result.yt$statistics.viewCount}} views
+						</p>
+					</li>
+				</ul>
+				<p ng-hide="results.length">research from top</p>
+			</div>
+<!--
+			<ul id="listLeft">
+				
+			</ul>
+-->
 		</section>
 <!--
 		<section class="searchBoxRight">
@@ -44,6 +62,7 @@
 			<div id="faderSlider"></div>
 		</section>
 	</div>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
 	<script src="//code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="js/search.js"></script>
