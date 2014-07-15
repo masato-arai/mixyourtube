@@ -22,14 +22,13 @@
 			<div ng-controller="mainCtrl">
 				<form ng-submit="doSearch()" name="myForm">
 					<input type="text" ng-model="query" required>
-					<!-- <input type="submit" value="search" ng-disabled="myFrom.$invalid"> -->
 				</form>
 				<ul ng-show="results.length">
 					<li ng-repeat="result in results">
 						<img ng-src="{{result.media$group.media$thumbnail[0].url}}">
 						<p>
-							{{result.title.$t}}<br />
-							by {{result.author[0].name.$t}} • {{result.published.$t}} • {{result.yt$statistics.viewCount}} views
+							<h3>{{result.title.$t}}</h3>
+							by {{result.author[0].name.$t}} • {{result.published.$t}} ago • {{result.yt$statistics.viewCount}} views
 						</p>
 					</li>
 				</ul>
