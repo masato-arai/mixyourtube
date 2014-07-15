@@ -67,9 +67,9 @@ function onYouTubePlayerAPIReady() {
 
 	player = new YT.Player('playerLeft', {
 		playerVars: {
-			autohide: 0, // 0:default 1:mouseover 2:show
+			showinfo: 0,
+			modestbranding: 0,
 			controls: 0, // 0:hide 1:show(default)
-			modestbranding: 0, //Youtube Logo on player 0:show 1:hide
 			rel: 0 //related video 0:hide 1:show(default)
 		},
 		events: {'onStateChange': onPlayerStateChange},
