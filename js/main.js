@@ -2,16 +2,6 @@
 $(window).bind("load", function() { 
 	// setup the height depends on the screen size
 	var winHeight = $(window).height();
-	// set initial div height / width
-	$('#video').css({
-		'height': winHeight - 312,
-	});
-	// make sure div stays full width/height on resize
-	$(window).resize(function(){
-		$('#video').css({
-			'height': winHeight - 312,
-		});
-	});
 
 	//Search Box ON OFF Animation
 	var search = ".searchBoxLeft, .searchBoxRight";
@@ -32,25 +22,3 @@ $(window).bind("load", function() {
 	$( "#faderSlider" ).slider();
 
 });
-
-
-
-/*
-var mainCtrl = function($scope, $http) {
-	$scope.doSearch = function() {
-		var url = "https://gdata.youtube.com/feeds/api/videos?"
-	+ [
-		'q=' + encodeURIComponent($scope.query),
-		'alt=json',
-		'max-results=5',
-		'v=2',
-		'callback=JSON_CALLBACK'
-	].join('&');
-	$http.jsonp(url).success(function(data) {
-		console.dir(data);
-		$scope.results = data.feed.entry;
-	});
-	}
-}
-*/
-

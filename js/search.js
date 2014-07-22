@@ -1,6 +1,30 @@
+
+
+// After the API loads, call a function to enable the search box.
+function handleAPILoaded() {
+  $('#search-button').attr('disabled', false);
+}
+
+// Search for a specified string.
+function search() {
+  var q = $('#query').val();
+  var request = gapi.client.youtube.search.list({
+    q: q,
+    part: 'snippet'
+  });
+
+  request.execute(function(response) {
+    var str = JSON.stringify(response.result);
+    $('#search-container').html('<pre>' + str + '</pre>');
+  });
+}
+
+
 var winHeight = $(window).height();
 var player;
 var player2;
+
+/*
 var mainCtrl = function($scope, $http) {
 	$scope.doSearch = function() {
 		var url = "https://gdata.youtube.com/feeds/api/videos?"
@@ -17,6 +41,7 @@ var mainCtrl = function($scope, $http) {
 	});
 	}
 }
+*/
 
 
 $(function() {
@@ -72,6 +97,7 @@ $(function() {
 		$(".searchBoxRight").animate({ bottom: -winHeight });
 	});
 
+/*
 
 	// Youtube Current Time
 	// call the function every 1 second.
@@ -87,6 +113,7 @@ $(function() {
 			$(".tubeTime").html(zero + m + ":" + zero + s);  // Using the JQUERY library to write to body
 
 	}
+*/
 
 });
 

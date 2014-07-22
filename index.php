@@ -19,6 +19,7 @@
 		</header><!-- End header Section-->
 		<section class="searchBoxLeft">
 			<div class="cancelButton">CANCEL</div>
+<!--
 			<div ng-controller="mainCtrl">
 				<form ng-submit="doSearch()" name="myForm">
 					<input type="text" ng-model="query" required>
@@ -32,22 +33,17 @@
 						</p>
 					</li>
 				</ul>
-				<p ng-hide="results.length">research from top</p>
+				<p ng-hide="results.length">hide later</p>
 			</div>
-<!--
-			<ul id="listLeft">
-				
-			</ul>
 -->
+			<div id="buttons">
+				<label>
+					<input id="query" value='cats' type="text"/>
+					<button id="search-button" disabled onclick="search()">Search</button>
+				</label>
+			</div>
+			<div id="search-container"></div>
 		</section>
-<!--
-		<section class="searchBoxRight">
-			<div class="cancelButton">CANCEL</div>
-			<input type="text" id="q">
-			<input type="button" id="searchRight" value="search">
-			<ul id="listRight"></ul>
-		</section>
--->
 		<section id="video">
 			<div class="tubeVideo tubeLeft">
 				<div class="tubeTitle tubeTitleLeft">BLUE HAWAII IN TWO (PT. II)</div>
@@ -61,10 +57,12 @@
 			<div id="faderSlider"></div>
 		</section>
 	</div>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
-	<script src="//code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script> -->
+	<script src="//code.jquery.com/jquery-latest.min.js"></script>
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="js/auth.js"></script>
 	<script src="js/search.js"></script>
+	<script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
 	<script src="js/main.js"></script>
 	<script src="//www.youtube.com/iframe_api"></script>
 	

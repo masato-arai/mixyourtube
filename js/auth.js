@@ -6,6 +6,7 @@ var OAUTH2_CLIENT_ID = '410627750412-ia00m3gpkfub8flenghbqj0lekkv37m9.apps.googl
 var OAUTH2_SCOPES = [
   'https://www.googleapis.com/auth/youtube'
 ];
+
 // Upon loading, the Google APIs JS client automatically invokes this callback.
 googleApiClientReady = function() {
   gapi.auth.init(function() {
