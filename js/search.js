@@ -6,6 +6,7 @@ function handleAPILoaded() {
 }
 
 // Search for a specified string.
+/*
 function search() {
   var q = $('#query').val();
   var request = gapi.client.youtube.search.list({
@@ -18,13 +19,13 @@ function search() {
     $('#search-container').html('<pre>' + str + '</pre>');
   });
 }
+*/
 
 
 var winHeight = $(window).height();
 var player;
 var player2;
 
-/*
 var mainCtrl = function($scope, $http) {
 	$scope.doSearch = function() {
 		var url = "https://gdata.youtube.com/feeds/api/videos?"
@@ -41,7 +42,6 @@ var mainCtrl = function($scope, $http) {
 	});
 	}
 }
-*/
 
 
 $(function() {

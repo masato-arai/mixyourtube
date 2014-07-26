@@ -19,7 +19,6 @@
 		</header><!-- End header Section-->
 		<section class="searchBoxLeft">
 			<div class="cancelButton">CANCEL</div>
-<!--
 			<div ng-controller="mainCtrl">
 				<form ng-submit="doSearch()" name="myForm">
 					<input type="text" ng-model="query" required>
@@ -33,15 +32,16 @@
 						</p>
 					</li>
 				</ul>
-				<p ng-hide="results.length">hide later</p>
+				<!-- <p ng-hide="results.length">hide later</p> -->
 			</div>
--->
+<!--
 			<div id="buttons">
 				<label>
 					<input id="query" value='cats' type="text"/>
 					<button id="search-button" disabled onclick="search()">Search</button>
 				</label>
 			</div>
+-->
 			<div id="search-container"></div>
 		</section>
 		<section id="video">
@@ -57,7 +57,7 @@
 			<div id="faderSlider"></div>
 		</section>
 	</div>
-	<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script> -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
 	<script src="//code.jquery.com/jquery-latest.min.js"></script>
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="js/auth.js"></script>

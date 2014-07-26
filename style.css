@@ -15,6 +15,9 @@ li {
 #wrapper {
 	color: #fff;
 	height: 100%;
+	margin-top: -310px;
+	position: fixed;
+	top: 50%;
 	width: 100%;
 }
 
@@ -128,23 +131,23 @@ header ul {
 }
 
 #siteTitle h1 {
+	border: 3px solid #fff;
 	font-family: 'Varela Round', sans-serif;
-	font-size: 30pt;
-	letter-spacing: .04em;
-	text-align: left;
+	font-size: 80%;
+	left: 20px;
+	letter-spacing: .02em;
+	padding: 12px;
+	position: fixed;
+	text-align: center;
 	text-transform: uppercase;
-/*
-	-webkit-text-stroke-width: 2px;
-	-webkit-text-stroke-color: #fff;
-	-webkit-text-fill-color: transparent;
-	-webkit-font-smoothing: antialiased;
-*/
+	top: 20px;
 }
 
 /*
 	Video Section
  */
 #video {
+	height: 450px;
 	margin: 0 auto;
 	max-width: 820px;
 	width: 100%;
