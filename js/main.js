@@ -7,16 +7,23 @@ $(window).bind("load", function() {
 	var search = ".searchBoxLeft, .searchBoxRight";
 	var searchLeft = ".searchBoxLeft";
 	var searchRight = ".searchBoxRight";
-	$(search).css({ bottom: -winHeight });
+	
 	$(".tubeTitleLeft").click(function() {
-		$(searchLeft).animate({ bottom: 0 });
+		$(searchLeft).animate({ 
+			opacity: 1
+		}, 1, function(){
+			$(this).css('visibility', 'visible').hide().fadeIn(300);
+		});
 	});
-	$(".tubeTitleRight").click(function() {
-		$(searchRight).animate({ bottom: 0 });
-	});
+
 	$(".cancelButton").click(function() {
-		$(search).animate({ bottom: -winHeight });
+		$(search).animate({
+			opacity: 0
+		}, 300, function() {
+			$(this).css('visibility', 'hidden');
+		});
 	});
+	
 
 	// fader
 	$( "#faderSlider" ).slider();

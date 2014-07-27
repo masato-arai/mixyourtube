@@ -81,11 +81,14 @@ header ul {
 .searchBoxRight {
 	background: #fff;
 	color: #000;
-	display:inline;
+	display: inline;
 	height: 100%;
+	opacity: 0;
 	position: fixed;
+	top: 0;
 	width: 100%;
-	z-index: 10000;
+	visibility: hidden;
+	z-index: 1000;
 }
 
 .cancelButton {
