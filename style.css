@@ -94,6 +94,9 @@ header ul {
 .cancelButton {
 	color: #ff2d55;
 	cursor: pointer;
+	position: fixed;
+	right: 10px;
+	top: 10px;
 }
 
 

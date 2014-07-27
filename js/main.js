@@ -1,7 +1,5 @@
 // Window load event used just in case window height is dependant upon images
 $(window).bind("load", function() { 
-	// setup the height depends on the screen size
-	var winHeight = $(window).height();
 
 	//Search Box ON OFF Animation
 	var search = ".searchBoxLeft, .searchBoxRight";
@@ -24,8 +22,7 @@ $(window).bind("load", function() {
 		});
 	});
 	
-
-	// fader
+	// Volume Fader
 	$( "#faderSlider" ).slider();
 
 });
