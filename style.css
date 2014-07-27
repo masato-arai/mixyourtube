@@ -4,6 +4,7 @@ body {
 }
 
 h1, p, ul {
+	font-family: 'Varela Round', sans-serif;
 	margin: 0;
 	padding: 0;
 }
@@ -76,11 +77,8 @@ header ul {
 /************
 	Search Box
  ************/
-
-.searchBoxLeft,
-.searchBoxRight {
+#searchWrapper {
 	background: #fff;
-	color: #000;
 	display: inline;
 	height: 100%;
 	opacity: 0;
@@ -91,14 +89,45 @@ header ul {
 	z-index: 1000;
 }
 
-.cancelButton {
-	color: #ff2d55;
-	cursor: pointer;
+#searchWrapper h1 {
+	border: 3px solid #000;
+	font-size: 80%;
+	left: 20px;
+	letter-spacing: .02em;
+	padding: 12px;
 	position: fixed;
-	right: 10px;
-	top: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	top: 20px;
 }
 
+.searchBoxLeft,
+.searchBoxRight {
+	color: #000;
+	height: 640px;
+	margin: -320px auto;
+	max-width: 820px;
+	position: relative;
+	top: 50%;
+}
+
+.cancelButton {
+	color: #000;
+	cursor: pointer;
+	float: right;
+	font-family: 'Varela Round', sans-serif;
+	font-size: 20px;
+	letter-spacing: .04em;
+	text-align: center;
+	-webkit-transition: all 0.14s ease-in-out;
+	-moz-transition: all 0.14s ease-in-out;
+	-o-transition: all 0.14s ease-in-out;
+	transition: all 0.14s ease-in-out;
+}
+
+.cancelButton:hover {
+	color: #ee9285;
+}
 
 /************
 	Audio Visualiser Section
@@ -138,7 +167,6 @@ header ul {
 
 #siteTitle h1 {
 	border: 3px solid #fff;
-	font-family: 'Varela Round', sans-serif;
 	font-size: 80%;
 	left: 20px;
 	letter-spacing: .02em;

@@ -17,32 +17,26 @@
 				<h1>/MIXYOURTUBE</h1>
 			</section><!-- End Site Title Section-->
 		</header><!-- End header Section-->
-		<section class="searchBoxLeft">
-			<div class="cancelButton">CANCEL</div>
-			<div ng-controller="mainCtrl">
-				<form ng-submit="doSearch()" name="myForm">
-					<input type="text" ng-model="query" required>
-				</form>
-				<ul ng-show="results.length">
-					<li ng-repeat="result in results">
-						<img ng-src="{{result.media$group.media$thumbnail[0].url}}">
-						<p>
-							<h3>{{result.title.$t}}</h3>
-							by {{result.author[0].name.$t}} • {{result.published.$t}} ago • {{result.yt$statistics.viewCount}} views
-						</p>
-					</li>
-				</ul>
-				<!-- <p ng-hide="results.length">hide later</p> -->
+		<section id="searchWrapper">
+			<div class="searchBoxLeft">
+				<div class="cancelButton">CANCEL</div>
+				<div ng-controller="mainCtrl">
+					<form ng-submit="doSearch()" name="myForm">
+						<input type="text" ng-model="query" required>
+					</form>
+					<ul ng-show="results.length">
+						<li ng-repeat="result in results">
+							<img ng-src="{{result.media$group.media$thumbnail[0].url}}">
+							<p>
+								<h3>{{result.title.$t}}</h3>
+								by {{result.author[0].name.$t}} • {{result.published.$t}} ago • {{result.yt$statistics.viewCount}} views
+							</p>
+						</li>
+					</ul>
+					<p ng-hide="results.length">hide later</p>
+				</div>
+				<div id="search-container"></div>
 			</div>
-<!--
-			<div id="buttons">
-				<label>
-					<input id="query" value='cats' type="text"/>
-					<button id="search-button" disabled onclick="search()">Search</button>
-				</label>
-			</div>
--->
-			<div id="search-container"></div>
 		</section>
 		<section id="video">
 			<div class="tubeVideo tubeLeft">

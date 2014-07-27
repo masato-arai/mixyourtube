@@ -2,19 +2,19 @@
 $(window).bind("load", function() { 
 
 	//Search Box ON OFF Animation
-	var search = ".searchBoxLeft, .searchBoxRight";
+	var search = "#searchWrapper";
 	var searchLeft = ".searchBoxLeft";
 	var searchRight = ".searchBoxRight";
 	
 	$(".tubeTitleLeft").click(function() {
-		$(searchLeft).animate({ 
+		$(search).animate({ 
 			opacity: 1
 		}, 1, function(){
 			$(this).css('visibility', 'visible').hide().fadeIn(300);
 		});
 	});
 
-	$(".cancelButton").click(function() {
+	$("#searchWrapper, .cancelButton").click(function() {
 		$(search).animate({
 			opacity: 0
 		}, 300, function() {
