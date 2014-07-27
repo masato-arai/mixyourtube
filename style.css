@@ -3,6 +3,10 @@ body {
 	padding: 1px;
 }
 
+*:focus {
+    outline: 0;
+}
+
 h1, p, ul {
 	font-family: 'Varela Round', sans-serif;
 	margin: 0;
@@ -11,6 +15,16 @@ h1, p, ul {
 
 li {
 	list-style: none;
+}
+
+::selection {
+	color:#fff;
+	background:#ee9285;
+}
+
+::-moz-selection {
+	color:#fff;
+	background:#ee9285;
 }
 
 #wrapper {
