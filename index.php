@@ -23,7 +23,7 @@
 				<div class="cancelButton">CANCEL</div>
 				<div ng-controller="mainCtrl">
 					<form ng-submit="doSearch()" name="myForm">
-						<input type="text" ng-model="query" required>
+						<input type="text" ng-model="query" ng-init="query='SEARCH'" value="SEARCH" ng-click="onTextClick($event)" required>
 					</form>
 					<ul ng-show="results.length">
 						<li ng-repeat="result in results">

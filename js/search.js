@@ -117,6 +117,9 @@ $(function() {
 
 });
 
+$scope.onTextClick = function ($event) {
+    $event.target.select();
+};
 
 function onYouTubePlayerAPIReady() {
 
