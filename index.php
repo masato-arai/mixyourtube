@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="user-scalable=0, initial-scale=1.0">
-	<title>mixtube</title>
+	<title>mixyourtube</title>
 	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Varela+Round'>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">

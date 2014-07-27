@@ -22,7 +22,12 @@ $(window).bind("load", function() {
 		});
 	});
 	
-	// Volume Fader
+	//First time Input is focused, delete it's value
+	$('input').one('focus', function(){
+		this.value = '';
+	});
+	
+	// jQuery UI volume fader
 	$( "#faderSlider" ).slider();
 
 });
