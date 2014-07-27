@@ -14,7 +14,7 @@ $(window).bind("load", function() {
 		});
 	});
 
-	$("#searchWrapper, .cancelButton").click(function() {
+	$(".searchCancel, .cancelButton").click(function() {
 		$(search).animate({
 			opacity: 0
 		}, 300, function() {

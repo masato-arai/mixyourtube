@@ -18,6 +18,7 @@
 			</section><!-- End Site Title Section-->
 		</header><!-- End header Section-->
 		<section id="searchWrapper">
+			<div class="searchCancel"></div>
 			<div class="searchBoxLeft">
 				<div class="cancelButton">CANCEL</div>
 				<div ng-controller="mainCtrl">
