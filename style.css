@@ -210,6 +210,29 @@ ul.searchList li .youtubeInfo:hover p {
 	color: #fff;
 }
 
+.checked {
+	background: url(images/checkedSprite.png) no-repeat 0 0;
+	background-size: 18px 18px;
+	border: 2px solid #000;
+	height: 28px;
+	margin-top: -14px;
+	position: absolute;
+	right: 14px;
+	top: 50%;
+	width: 74px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-transition: border, background-color 0.5s;
+	-moz-transition: border, background-color 0.5s;
+	transition: border, background-color 0.5s;
+}
+
+.checked:hover {
+	background-color: #fff;
+	border: solid 2px #fff;
+}
+
 /************
 	Audio Visualiser Section
  ************/
@@ -236,6 +259,8 @@ ul.searchList li .youtubeInfo:hover p {
 	text-align: left;
 	top: 10px;
 }
+
+
 
 /************
 	Site Title Section
