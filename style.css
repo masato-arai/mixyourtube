@@ -120,7 +120,7 @@ header ul {
 	border-bottom: 2px solid #000;
 	font-size: 24px;
 	padding-bottom: 6px;
-	width: 680px;
+	width: 700px;
 }
 
 .searchCancel {
@@ -156,6 +156,58 @@ header ul {
 
 .cancelButton:hover {
 	color: #ee9285;
+}
+
+ul.searchList {
+	margin-top: 40px;
+}
+
+ul.searchList li {
+	cursor: pointer;
+	height: 75px;
+	margin-top: 15px;
+	position: relative;
+	width: 100%;
+}
+
+ul.searchList li img{
+	float: left;
+	height: 75px;
+	width: 134px;
+}
+
+ul.searchList li h3 {
+	font-size: 16px;
+	letter-spacing: -.04em;
+	margin: 0;
+}
+
+ul.searchList li .youtubeInfo {
+	margin-top: -37px;
+	padding: 14px;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 81%;
+}
+
+ul.searchList li .youtubeInfo:hover {
+	background: #000;
+	border: 0px solid #000000;
+	color: #fff;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+}
+
+ul.searchList li p {
+	color: #999;
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+ul.searchList li .youtubeInfo:hover p {
+	color: #fff;
 }
 
 /************

@@ -25,13 +25,13 @@
 					<form ng-submit="doSearch()" name="myForm">
 						<input type="text" ng-model="query" ng-init="query='SEARCH'" value="SEARCH" ng-click="onTextClick($event)" required>
 					</form>
-					<ul ng-show="results.length">
+					<ul ng-show="results.length" class="searchList">
 						<li ng-repeat="result in results">
 							<img ng-src="{{result.media$group.media$thumbnail[0].url}}">
-							<p>
+							<div class="youtubeInfo">
 								<h3>{{result.title.$t}}</h3>
-								by {{result.author[0].name.$t}} • {{result.published.$t}} ago • {{result.yt$statistics.viewCount}} views
-							</p>
+								<p>by {{result.author[0].name.$t}} • {{result.yt$statistics.viewCount}} views</p>
+							</div>
 						</li>
 					</ul>
 					<p ng-hide="results.length">hide later</p>
