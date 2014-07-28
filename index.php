@@ -31,7 +31,12 @@
 							<div class="youtubeInfo">
 								<h3>{{result.title.$t}}</h3>
 								<p>by {{result.author[0].name.$t}} • {{result.yt$statistics.viewCount}} views</p>
-								<div class="checked"></div>
+								<!-- <div class="checked "></div> -->
+								<div class="checked selected">
+									<span data-label="selected">
+										<img src="images/searchChecked.png" />
+									</span>
+								</div>
 							</div>
 						</li>
 					</ul>

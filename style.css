@@ -211,27 +211,52 @@ ul.searchList li .youtubeInfo:hover p {
 }
 
 .checked {
-	background: url(images/checkedSprite.png) no-repeat 0 0;
-	background-size: 18px 18px;
-	border: 2px solid #000;
+	border: solid 2px #000;
+	cursor: pointer;
 	height: 28px;
-	margin-top: -14px;
+	margin-top: -16px;
+	overflow: hidden;
 	position: absolute;
-	right: 14px;
+	right: 10px;
 	top: 50%;
 	width: 74px;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	-webkit-transition: border, background-color 0.5s;
-	-moz-transition: border, background-color 0.5s;
-	transition: border, background-color 0.5s;
+	-webkit-transition: border, background-color 0.25s;
+	-moz-transition: border, background-color 0.25s;
+	transition: border, background-color 0.25s;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
-.checked:hover {
+.checked span {
+	color: #000;
+	display: block;
+	height: 100%;
+	position: relative;
+	top: -100%;
+	-webkit-transition: background-color, top 0.25s;
+	-moz-transition: background-color,top 0.25s;
+	transition: background-color, top 0.25s;
+	width: 100%;
+}
+
+.checked.selected img {
+	height: 56px;
+	left: 50%;
+	margin-left: -10px;
+	position: absolute;
+	width: 20px;
+}
+
+.checked.selected:hover {
 	background-color: #fff;
 	border: solid 2px #fff;
 }
+
+.checked:hover span {
+	top: 0%;
+}
+
 
 /************
 	Audio Visualiser Section
