@@ -191,13 +191,19 @@ ul.searchList li .youtubeInfo {
 	width: 81%;
 }
 
-ul.searchList li .youtubeInfo:hover {
+ul.searchList li:hover .youtubeInfo {
 	background: #000;
 	border: 0px solid #000000;
 	color: #fff;
-	border-radius: 10px 10px 10px 10px;
-	-moz-border-radius: 10px 10px 10px 10px;
 	-webkit-border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+	-webkit-transition: background-color 0.25s linear;
+	-moz-transition: background-color 0.25s linear;
+	-o-transition: background-color 0.25s linear;
+	-ms-transition: background-color 0.25s linear;
+	transition: background-color 0.25s linear;
+
 }
 
 ul.searchList li p {
@@ -206,7 +212,7 @@ ul.searchList li p {
 	margin-top: 10px;
 }
 
-ul.searchList li .youtubeInfo:hover p {
+ul.searchList li:hover p {
 	color: #fff;
 }
 
@@ -248,12 +254,12 @@ ul.searchList li .youtubeInfo:hover p {
 	width: 20px;
 }
 
-.checked.selected:hover {
+ul.searchList li:hover .checked.selected {
 	background-color: #fff;
 	border: solid 2px #fff;
 }
 
-.checked:hover span {
+ul.searchList li:hover .checked span {
 	top: 0%;
 }
 

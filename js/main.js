@@ -1,7 +1,7 @@
 // Window load event used just in case window height is dependant upon images
 $(window).bind("load", function() { 
 
-	//Search Box ON OFF Animation
+	// Search Box ON OFF Animation
 	var search = "#searchWrapper";
 	var searchLeft = ".searchBoxLeft";
 	var searchRight = ".searchBoxRight";
@@ -22,11 +22,14 @@ $(window).bind("load", function() {
 		});
 	});
 	
-	//First time Input is focused, delete it's value
+	// First time Input is focused, delete it's value
 	$('input').one('focus', function(){
 		this.value = '';
 	});
 	
+	// Hover animation
+	
+
 	// jQuery UI volume fader
 	$( "#faderSlider" ).slider();
 
