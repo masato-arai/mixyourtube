@@ -159,6 +159,10 @@ header ul {
 	color: #ee9285;
 }
 
+#search {
+	display: none;
+}
+
 ul.searchList {
 	margin-top: 40px;
 }

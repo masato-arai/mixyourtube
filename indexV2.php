@@ -21,8 +21,8 @@
 			<div class="searchCancel"></div>
 			<div class="searchBoxLeft">
 				<div class="cancelButton">CANCEL</div>
-				<input type="text" id="q">
-				<input type="button" id="search" value="search">
+				<input type="text" id="q" value="search">
+				<input type="button" id="search">
 				<ul id="list"></ul>
 			</div>
 		</section>

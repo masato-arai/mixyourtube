@@ -34,3 +34,10 @@ $(window).bind("load", function() {
 	$( "#faderSlider" ).slider();
 
 });
+
+$("#q").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#search").click();
+    }
+});
+
