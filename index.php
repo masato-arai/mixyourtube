@@ -26,7 +26,7 @@
 						<input type="text" ng-model="query" ng-init="query='SEARCH'" value="SEARCH" ng-click="onTextClick($event)" required>
 					</form>
 					<ul ng-show="results.length" class="searchList">
-						<li ng-repeat="result in results" class="hogehoge">
+						<li ng-repeat="result in results">
 							<img ng-src="{{result.media$group.media$thumbnail[0].url}}">
 							<div class="youtubeInfo">
 								<h3>{{result.title.$t}}</h3>

@@ -147,6 +147,7 @@ header ul {
 	float: right;
 	font-family: 'Varela Round', sans-serif;
 	font-size: 24px;
+	margin-right: 8px;
 	text-align: center;
 	-webkit-transition: all 0.16s ease-in-out;
 	-moz-transition: all 0.16s ease-in-out;
@@ -223,7 +224,7 @@ ul.searchList li:hover p {
 	margin-top: -16px;
 	overflow: hidden;
 	position: absolute;
-	right: 10px;
+	right: 20px;
 	top: 50%;
 	width: 74px;
 	-webkit-transition: border, background-color 0.25s;

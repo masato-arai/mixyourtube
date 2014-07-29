@@ -2,30 +2,10 @@
 
 // After the API loads, call a function to enable the search box.
 function handleAPILoaded() {
-  $('#search-button').attr('disabled', false);
+	$('#search-button').attr('disabled', false);
 }
 
 // Search for a specified string.
-/*
-function search() {
-  var q = $('#query').val();
-  var request = gapi.client.youtube.search.list({
-    q: q,
-    part: 'snippet'
-  });
-
-  request.execute(function(response) {
-    var str = JSON.stringify(response.result);
-    $('#search-container').html('<pre>' + str + '</pre>');
-  });
-}
-*/
-
-
-var winHeight = $(window).height();
-var player;
-var player2;
-
 var mainCtrl = function($scope, $http) {
 	$scope.doSearch = function() {
 		var url = "https://gdata.youtube.com/feeds/api/videos?"
@@ -33,6 +13,7 @@ var mainCtrl = function($scope, $http) {
 		'q=' + encodeURIComponent($scope.query),
 		'alt=json',
 		'max-results=5',
+		'nextPageToken',
 		'v=2',
 		'callback=JSON_CALLBACK'
 	].join('&');
@@ -46,57 +27,19 @@ var mainCtrl = function($scope, $http) {
 
 $(function() {
 
-/*
-	$('#searchLeft, #searchRight').click(function() {
-		var url = "https://gdata.youtube.com/feeds/api/videos";
-		var options = {
-			"q": $('#q').val(),
-			"alt": "json",
-			"max-results": 5,
-			"v": 2
-		};
-
-		$.get(url, options, function(rs) {
-			console.log(rs);
-			$('#listLeft, #listRight').empty();
-
-			for (var i=0; i<rs.feed.entry.length; i++) {
-				var f = rs.feed.entry[i];
-				$('#listLeft').append(
-					$('<li class="movieLeft">').append(
-						$('<img>').attr('src', f['media$group']['media$thumbnail'][0]['url'])
-					).data('video-id', f['media$group']['yt$videoid']['$t'])
-				);
-				$('#listRight').append(
-					$('<li class="movieRight">').append(
-						$('<img>').attr('src', f['media$group']['media$thumbnail'][0]['url'])
-					).data('video-id', f['media$group']['yt$videoid']['$t'])
-				);
-			}
-		}, "json");
-	});
-*/
-	// Retrieve the next page of videos in the playlist.
-	function nextPage() {
-		requestVideoPlaylist(playlistId, nextPageToken);
-	}
-	
-	// Retrieve the previous page of videos in the playlist.
-	function previousPage() {
-		requestVideoPlaylist(playlistId, prevPageToken);
-	}
+	var player;
+	var player2;
 	
 	$(document).on('click', 'li.movieLeft', function() {
 		player.cueVideoById($(this).data('video-id'));
 		player.setVolume(100);
-		$(".searchBoxLeft").animate({ bottom: -winHeight });
 	});
 
 	$(document).on('click', 'li.movieRight', function() {
 		player2.cueVideoById($(this).data('video-id'));
-		$(".searchBoxRight").animate({ bottom: -winHeight });
+		player.setVolume(100);
 	});
-
+	console.log(document);
 /*
 
 	// Youtube Current Time
@@ -128,9 +71,15 @@ function onYouTubePlayerAPIReady() {
 		},
 		events: {'onStateChange': onPlayerStateChange},
 	});
+	
 	player2 = new YT.Player('playerRight', {
-		playerVars: {controls: 0, rel: 0},
-		events: {'onStateChange': onPlayerStateChange}
+		playerVars: {
+			showinfo: 0,
+			modestbranding: 0,
+			controls: 0, // 0:hide 1:show(default)
+			rel: 0 //related video 0:hide 1:show(default)
+		},
+		events: {'onStateChange': onPlayerStateChange},
 	});
 
 }
