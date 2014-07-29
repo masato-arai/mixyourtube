@@ -21,7 +21,8 @@ $(function() {
 				var f = rs.feed.entry[i];
 				$('#list').append(
 					$('<li class="movie">').append(
-						$('<img>').attr('src', f['media$group']['media$thumbnail'][0]['url'])
+						$('<img>').attr('src', f['media$group']['media$thumbnail'][0]['url']),
+						$('<div class="youtubeInfo"></div>').attr(f['title']['$t'])
 					).data('video-id', f['media$group']['yt$videoid']['$t'])
 				);
 			}
@@ -31,6 +32,11 @@ $(function() {
 	$(document).on('click', 'li.movie', function() {
 		player.cueVideoById($(this).data('video-id'));
 		player.setVolume(100);
+		$("#searchWrapper").animate({
+			opacity: 0
+		}, 300, function() {
+			$(this).css('visibility', 'hidden');
+		});
 	});
 
 	
