@@ -16,20 +16,28 @@ $(function() {
 
 		$.get(url, options, function(rs) {
 			console.log(rs);
-			$('#list').empty();
+			$('.searchList').empty();
 			for (var i=0; i<rs.feed.entry.length; i++) {
 				var f = rs.feed.entry[i];
-				$('#list').append(
-					$('<li class="movie">').append(
+				$('.searchList').append(
+					$('<li class="movieLeft">').append(
 						$('<img>').attr('src', f['media$group']['media$thumbnail'][0]['url']),
-						$('<div class="youtubeInfo"></div>').attr(f['title']['$t'])
+						$('<div></div>').addClass("youtubeInfo").append(
+							$('<h3></h3>').text(f['title']['$t']),
+							$('<p></p>').text('by ' + f['author'][0]['name']['$t'] + ' • ' + f['yt$statistics']['viewCount'] + 'views' ),
+							$('<div></div').addClass("checked selected").append(
+								$('<span></span>').attr('data-label', 'selected').append(
+									$('<img>').attr('src', 'images/searchChecked.png')
+								)
+							)
+						)
 					).data('video-id', f['media$group']['yt$videoid']['$t'])
 				);
 			}
 		}, "json");
 	});
 	
-	$(document).on('click', 'li.movie', function() {
+	$(document).on('click', 'li.movieLeft', function() {
 		player.cueVideoById($(this).data('video-id'));
 		player.setVolume(100);
 		$("#searchWrapper").animate({

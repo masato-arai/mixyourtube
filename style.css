@@ -181,12 +181,6 @@ ul.searchList li img{
 	width: 134px;
 }
 
-ul.searchList li h3 {
-	font-size: 16px;
-	letter-spacing: -.04em;
-	margin: 0;
-}
-
 ul.searchList li .youtubeInfo {
 	margin-top: -37px;
 	padding: 14px;
@@ -195,6 +189,13 @@ ul.searchList li .youtubeInfo {
 	top: 50%;
 	width: 81%;
 }
+
+.youtubeInfo h3 {
+	font-size: 16px;
+	letter-spacing: -.04em;
+	margin: 0;
+}
+
 
 ul.searchList li:hover .youtubeInfo {
 	background: #000;

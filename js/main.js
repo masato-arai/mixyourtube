@@ -27,17 +27,16 @@ $(window).bind("load", function() {
 		this.value = '';
 	});
 	
-	// Hover animation
-	
+	//Search enter key click event	
+	$("#q").keyup(function(event){
+		if(event.keyCode == 13){
+			$("#search").click();
+		}
+	});
 
 	// jQuery UI volume fader
 	$( "#faderSlider" ).slider();
 
 });
 
-$("#q").keyup(function(event){
-    if(event.keyCode == 13){
-        $("#search").click();
-    }
-});
 

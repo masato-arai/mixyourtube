@@ -18,12 +18,11 @@
 			</section><!-- End Site Title Section-->
 		</header><!-- End header Section-->
 		<section id="searchWrapper">
-			<div class="searchCancel"></div>
 			<div class="searchBoxLeft">
 				<div class="cancelButton">CANCEL</div>
-				<input type="text" id="q" value="search">
+				<input type="text" id="q" value="SEARCH">
 				<input type="button" id="search">
-				<ul id="list"></ul>
+				<ul class="searchList"></ul>
 			</div>
 		</section>
 		<section id="video">
