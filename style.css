@@ -18,13 +18,18 @@ li {
 }
 
 ::selection {
-	color:#fff;
-	background:#ee9285;
+	background: white;
+	color:#000;
 }
 
 ::-moz-selection {
-	color:#fff;
-	background:#ee9285;
+	background:#fff;
+	color:#000;
+}
+
+#searchWrapper ::selection {
+	background: #000;
+	color: #fff;
 }
 
 #wrapper {
