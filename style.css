@@ -27,7 +27,8 @@ li {
 	color:#000;
 }
 
-#searchWrapper ::selection {
+#searchWrapperLeft ::selection,
+#searchWrapperRight ::selection {
 	background: #000;
 	color: #fff;
 }
@@ -96,7 +97,8 @@ header ul {
 /************
 	Search Box
  ************/
-#searchWrapper {
+#searchWrapperLeft,
+#searchWrapperRight {
 	background: #fff;
 	display: inline;
 	height: 100%;
@@ -108,7 +110,8 @@ header ul {
 	z-index: 1000;
 }
 
-#searchWrapper h1 {
+#searchWrapperLeft h1,
+#searchWrapperRight h1 {
 	border: 3px solid #000;
 	font-size: 80%;
 	left: 20px;
@@ -120,7 +123,8 @@ header ul {
 	top: 20px;
 }
 
-#searchWrapper input {
+#searchWrapperLeft input,
+#searchWrapperRight input {
 	border: none;
 	border-bottom: 2px solid #000;
 	font-size: 24px;
@@ -164,17 +168,20 @@ header ul {
 	color: #ee9285;
 }
 
-#search {
+#searchLeft,
+#searchRight {
 	display: none;
 }
 
-ul.searchList {
+ul.searchListLeft,
+ul.searchListRight {
 	margin-top: 40px;
 	height: 450px;
 	overflow: scroll;
 }
 
-ul.searchList li {
+ul.searchListLeft li,
+ul.searchListRight li {
 	cursor: pointer;
 	height: 75px;
 	margin-top: 15px;
@@ -182,13 +189,15 @@ ul.searchList li {
 	width: 100%;
 }
 
-ul.searchList li img{
+ul.searchListLeft li img,
+ul.searchListRight li img {
 	float: left;
 	height: 75px;
 	width: 134px;
 }
 
-ul.searchList li .youtubeInfo {
+ul.searchListLeft li .youtubeInfo,
+ul.searchListRight li .youtubeInfo {
 	margin-top: -37px;
 	padding: 14px;
 	position: absolute;
@@ -210,7 +219,8 @@ ul.searchList li .youtubeInfo {
 }
 
 
-ul.searchList li:hover .youtubeInfo {
+ul.searchListLeft li:hover .youtubeInfo,
+ul.searchListRight li:hover .youtubeInfo {
 	background: #000;
 	border: 0px solid #000000;
 	color: #fff;
@@ -225,7 +235,8 @@ ul.searchList li:hover .youtubeInfo {
 
 }
 
-ul.searchList li p {
+ul.searchListLeft li p,
+ul.searchListRight li p {
 	color: #999;
 	font-size: 14px;
 	margin-top: 10px;
@@ -237,7 +248,8 @@ ul.searchList li p {
 	-o-text-overflow: ellipsis;
 }
 
-ul.searchList li:hover p {
+ul.searchListLeft li:hover p,
+ul.searchListRight li:hover p {
 	color: #fff;
 }
 
@@ -279,12 +291,14 @@ ul.searchList li:hover p {
 	width: 20px;
 }
 
-ul.searchList li:hover .checked.selected {
+ul.searchListLeft li:hover .checked.selected,
+ul.searchListRight li:hover .checked.selected {
 	background-color: #fff;
 	border: solid 2px #fff;
 }
 
-ul.searchList li:hover .checked span {
+ul.searchListLeft li:hover .checked span,
+ul.searchListRight li:hover .checked span {
 	top: 0%;
 }
 

@@ -2,12 +2,20 @@
 $(window).bind("load", function() { 
 
 	// Search Box ON OFF Animation
-	var search = "#searchWrapper";
-	var searchLeft = ".searchBoxLeft";
-	var searchRight = ".searchBoxRight";
+	var search = "#searchWrapperLeft, #searchWrapperRight";
+	var searchLeft = "#searchWrapperLeft";
+	var searchRight = "#searchWrapperRight";
 	
 	$(".tubeTitleLeft").click(function() {
-		$(search).animate({ 
+		$(searchLeft).animate({ 
+			opacity: 1
+		}, 1, function(){
+			$(this).css('visibility', 'visible').hide().fadeIn(300);
+		});
+	});
+
+	$(".tubeTitleRight").click(function() {
+		$(searchRight).animate({ 
 			opacity: 1
 		}, 1, function(){
 			$(this).css('visibility', 'visible').hide().fadeIn(300);
@@ -28,9 +36,14 @@ $(window).bind("load", function() {
 	});
 	
 	//Search enter key click event	
-	$("#q").keyup(function(event){
+	$("#qLeft").keyup(function(event){
 		if(event.keyCode == 13){
-			$("#search").click();
+			$("#searchLeft").click();
+		}
+	});
+	$("#qRight").keyup(function(event){
+		if(event.keyCode == 13){
+			$("#searchRight").click();
 		}
 	});
 	
