@@ -12,7 +12,7 @@ $(function() {
 			'alt': 'json',
 /* 			'totalResults': 50, */
 			'start-index': 1,
-			'max-results': 5,
+			'max-results': 50,
 /*
 			'itemsPerPage':5,
 			'orderBy': 'viewCount',
