@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns='http://www.w3.org/2005/Atom'
+xmlns:openSearch='http://a9.com/-/spec/opensearch/1.1/'>
+	<openSearch:totalResults>50</openSearch:totalResults>
+	<openSearch:startIndex>1</openSearch:startIndex>
+	<openSearch:itemsPerPage>5</openSearch:itemsPerPage>
+</feed>

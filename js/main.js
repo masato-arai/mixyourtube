@@ -33,10 +33,8 @@ $(window).bind("load", function() {
 			$("#search").click();
 		}
 	});
-
+	
 	// jQuery UI volume fader
 	$( "#faderSlider" ).slider();
 
 });
-
-

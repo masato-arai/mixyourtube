@@ -1,4 +1,3 @@
-<? ?>
 <!DOCTYPE html>
 <html lang="en" ng-app>
 <head>
@@ -11,7 +10,6 @@
 	<link rel="stylesheet" href="style.css">
 	<link rel='previous' type='application/atom+xml' href='http://gdata.youtube.com/feeds/api/videos?start-index=1&max-results=5&v=2'/>
 	<link rel='next' type='application/atom+xml' href='http://gdata.youtube.com/feeds/api/videos?start-index=51&max-results=5&v=2'/>
-
 </head>
 <body>
 	<div id="wrapper">
@@ -27,6 +25,9 @@
 				<input type="text" id="q" value="SEARCH">
 				<input type="button" id="search">
 				<ul class="searchList">Delete later</ul>
+				<?
+					$xml=simplexml_load_file("note.xml");
+				?>
 			</div>
 		</section>
 		<section id="video">
