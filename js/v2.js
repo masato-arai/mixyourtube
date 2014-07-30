@@ -8,9 +8,15 @@ $(function() {
 	$('#search').click(function() {
 		var url = "https://gdata.youtube.com/feeds/api/videos?";
 		var options = {
-			'q': encodeURIComponent($('#q').val()),
+			'q': $('#q').val(),
 			'alt': 'json',
-			'max-results': 5,
+/* 			'totalResults': 50, */
+			'start-index': 1,
+			'max-results': 50,
+/*
+			'itemsPerPage':5,
+			'orderBy': 'viewCount',
+*/
 			'v': 2
 		};
 

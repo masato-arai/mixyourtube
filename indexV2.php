@@ -9,6 +9,9 @@
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" href="style.css">
+	<link rel='previous' type='application/atom+xml' href='http://gdata.youtube.com/feeds/api/videos?start-index=1&max-results=5&v=2'/>
+	<link rel='next' type='application/atom+xml' href='http://gdata.youtube.com/feeds/api/videos?start-index=51&max-results=5&v=2'/>
+
 </head>
 <body>
 	<div id="wrapper">
@@ -23,7 +26,7 @@
 				<div class="cancelButton">CANCEL</div>
 				<input type="text" id="q" value="SEARCH">
 				<input type="button" id="search">
-				<ul class="searchList"></ul>
+				<ul class="searchList">Delete later</ul>
 			</div>
 		</section>
 		<section id="video">
