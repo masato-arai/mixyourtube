@@ -201,7 +201,7 @@ ul.searchList li .youtubeInfo {
 	margin: 0;
 	overflow: hidden;
 	white-space: nowrap;
-	width: 600px;
+	width: 78%;
 	text-overflow: ellipsis;
 	-webkit-text-overflow: ellipsis;
 	-o-text-overflow: ellipsis;
@@ -227,6 +227,12 @@ ul.searchList li p {
 	color: #999;
 	font-size: 14px;
 	margin-top: 10px;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 65%;
+	text-overflow: ellipsis;
+	-webkit-text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
 }
 
 ul.searchList li:hover p {
