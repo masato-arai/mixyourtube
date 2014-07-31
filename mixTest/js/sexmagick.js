@@ -1,3 +1,15 @@
+start_vid_left = 's-t1tifeImw';
+start_vid_right = 'd7zBePUZMog';
+
+var params = { allowScriptAccess: "always" };
+var attsLeft = { id: "left-player" };
+var attsRight = { id: "right-player" };
+// read the url & get the initial track
+swfobject.embedSWF("http://www.youtube.com/v/" + start_vid_left + "&enablejsapi=1&playerapiid=yt-left-player&loop=1",
+"left-player", "425", "336", "8", null, null, params, attsLeft);
+swfobject.embedSWF("http://www.youtube.com/v/" + start_vid_right + "&enablejsapi=1&playerapiid=yt-right-player&loop=1",
+"right-player", "425", "336", "8", null, null, params, attsRight);
+
 
 function onYouTubePlayerReady(playerId) {
     left_player = document.getElementById('left-player')
