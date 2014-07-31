@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" href="style.css">
-	<script src="js/customPlayer/swfobject.js"></script>
+	<script src="js/swfobject.js"></script>
 </head>
 <body>
 	<div id="wrapper">
@@ -51,8 +51,10 @@
 	</div>
 	<script src="//code.jquery.com/jquery-latest.min.js"></script>
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="http://www.google.com/jsapi"></script> 
 	<script src="js/auth.js"></script>
 	<script src="js/v2.js"></script>
+	<!-- <script src="js/fader.js"></script> -->
 	<script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
 	<script src="//www.youtube.com/iframe_api"></script>
 	<script src="js/main.js"></script>
