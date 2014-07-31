@@ -5,8 +5,9 @@ function handleAPILoaded() {
 
 // Search for a specified string.
 var url = "https://gdata.youtube.com/feeds/api/videos?";
-
 $(function() {
+
+	// Left Search List
 	$('#searchLeft').click(function() {
 		var options = {
 			'q': $('#qLeft').val(),
@@ -37,7 +38,6 @@ $(function() {
 			}
 		}, "json");
 	});
-	
 	$(document).on('click', 'li.movieLeft', function() {
 		playerLeft.cueVideoById($(this).data('video-id'));
 		playerLeft.setVolume(100);
@@ -47,9 +47,8 @@ $(function() {
 			$(this).css('visibility', 'hidden');
 		});
 	});
-});
 
-$(function() {
+	// Right Search List
 	$('#searchRight').click(function() {
 		var options = {
 			'q': $('#qRight').val(),
@@ -79,7 +78,6 @@ $(function() {
 			}
 		}, "json");
 	});
-	
 	$(document).on('click', 'li.movieRight', function() {
 		playerRight.cueVideoById($(this).data('video-id'));
 		playerRight.setVolume(100);
@@ -90,31 +88,28 @@ $(function() {
 		});
 	});
 
+	// Volume Fader
+	$('#faderSlider').slider({max: 200, min: 0,value: 100});
+	$('#faderSlider').bind('slide', function(event, ui) {
+		var left_val = Math.max(Math.min(190 - parseInt(
+			$('#faderSlider').slider('option','value')
+		), 100), 0);
+		var right_val = Math.max(Math.min(parseInt(
+			$('#faderSlider').slider('option','value')
+		), 110) - 10, 0);
+		playerLeft.setVolume(left_val);
+		playerRight.setVolume(right_val);	
+	});
 
 });
 
-/*
-var start_vid_left = 's-t1tifeImw';
-var start_vid_right = 'd7zBePUZMog';
-var params = { allowScriptAccess: "always" };
-var attsLeft = { id: "playerLeft" };
-var attsRight = { id: "playerRight" };
-*/
-
-/*
-// read the url & get the initial track
-swfobject.embedSWF("http://www.youtube.com/v/" + start_vid_left + "&enablejsapi=1&playerapiid=yt-left-player&loop=1",
-"playerLeft", "425", "336", "8", null, null, params, attsLeft);
-swfobject.embedSWF("http://www.youtube.com/v/" + start_vid_right + "&enablejsapi=1&playerapiid=yt-right-player&loop=1",
-"playerRight", "425", "336", "8", null, null, params, attsRight);
-*/
-
 
 function onYouTubePlayerAPIReady() {
-
 	playerLeft = new YT.Player('playerLeft', {
+		// Left initial track
+		videoId: 's-t1tifeImw',
 		playerVars: {
-			showinfo: 1,
+			showinfo: 0,
 			modestbranding: 0,
 			controls: 0, // 0:hide 1:show(default)
 			rel: 0 //related video 0:hide 1:show(default)
@@ -123,15 +118,16 @@ function onYouTubePlayerAPIReady() {
 	});
 	
 	playerRight = new YT.Player('playerRight', {
-		playerVars: {
-			showinfo: 1,
+		// Right initial track
+		videoId: 'd7zBePUZMog',
+		playerVars: {			
+			showinfo: 0,
 			modestbranding: 0,
 			controls: 0, // 0:hide 1:show(default)
 			rel: 0 //related video 0:hide 1:show(default)
 		},
 		events: {'onStateChange': onPlayerStateChange},
 	});
-
 }
 
 function onPlayerStateChange(e){
@@ -145,15 +141,4 @@ function onPlayerStateChange(e){
 		});
 	}
 }
-
-$(function() {
-	$('#faderSlider').slider({max: 200, min: 0,value: 100});
-	$('#faderSlider').bind('slide', function(event, ui) {
-		var left_val = Math.max(Math.min(190 - parseInt($('#faderSlider').slider('option','value')), 100), 0);
-		var right_val = Math.max(Math.min(parseInt($('#faderSlider').slider('option','value')), 110) - 10, 0);
-		playerLeft.setVolume(left_val);
-		playerRight.setVolume(right_val);	
-	});
-});
-
 
