@@ -4,9 +4,7 @@ function handleAPILoaded() {
 }
 
 // Search for a specified string.
-
 var url = "https://gdata.youtube.com/feeds/api/videos?";
-
 
 $(function() {
 	$('#searchLeft').click(function() {
@@ -27,7 +25,7 @@ $(function() {
 						$('<img>').attr('src', f['media$group']['media$thumbnail'][0]['url']),
 						$('<div class="youtubeInfo">').append(
 							$('<h3>').text(f['title']['$t']),
-							$('<p>').text('by ' + f['author'][0]['name']['$t'] + ' • ' + f['yt$statistics']['viewCount'] + 'views' ),
+							$('<p>').text('by ' + f['author'][0]['name']['$t'] + ' • ' + f['yt$statistics']['viewCount'] + ' views' ),
 							$('<div class="checked selected">').append(
 								$('<span data-label="selected">').append(
 									$('<img>').attr('src', 'images/searchChecked.png')
@@ -69,7 +67,7 @@ $(function() {
 						$('<img>').attr('src', f['media$group']['media$thumbnail'][0]['url']),
 						$('<div class="youtubeInfo">').append(
 							$('<h3>').text(f['title']['$t']),
-							$('<p>').text('by ' + f['author'][0]['name']['$t'] + ' • ' + f['yt$statistics']['viewCount'] + 'views' ),
+							$('<p>').text('by ' + f['author'][0]['name']['$t'] + ' • ' + f['yt$statistics']['viewCount'] + ' views' ),
 							$('<div class="checked selected">').append(
 								$('<span data-label="selected">').append(
 									$('<img>').attr('src', 'images/searchChecked.png')
@@ -99,7 +97,7 @@ function onYouTubePlayerAPIReady() {
 
 	playerLeft = new YT.Player('playerLeft', {
 		playerVars: {
-			showinfo: 0,
+			showinfo: 1,
 			modestbranding: 0,
 			controls: 0, // 0:hide 1:show(default)
 			rel: 0 //related video 0:hide 1:show(default)
@@ -109,7 +107,7 @@ function onYouTubePlayerAPIReady() {
 	
 	playerRight = new YT.Player('playerRight', {
 		playerVars: {
-			showinfo: 0,
+			showinfo: 1,
 			modestbranding: 0,
 			controls: 0, // 0:hide 1:show(default)
 			rel: 0 //related video 0:hide 1:show(default)

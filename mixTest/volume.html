@@ -1,0 +1,84 @@
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+    <head>
+    <title></title>
+        <link type="text/css" href="css/jui.css" rel="stylesheet" />
+        <script type="text/javascript" src="../js/swfobject.js"></script>
+
+        <style type="text/css">
+            body {background-color: #000;}
+            #header {width: 960px; margin: auto; text-align: center;}
+            a img {border: 0;}
+            .crate {padding 5px;}
+            .crate-title {color: #fff; font-weight: bold; text-transform: uppercase;}
+            .selector {margin-top: 15px;}
+            .selector input {width: 350px; font-size: 20px;}
+            #crossfader {margin-top: 50px;}
+            #header img {display: block; margin: auto; margin-bottom: 0px; margin-top: -25px;}
+            .pages {color: #fff; padding: 10px;}
+            .page {padding: 5px;}
+            a.page {color: #f0f;}
+            a.page {cursor:pointer;}
+            a.page:hover {background-color: #0f0;}            
+        </style>
+    </head>
+    <body id="THEPARTY">
+                    <div id="left-player">Delete later</div>
+                    <div id="left-selector" class="selector">
+                        <input type="text" value="terminator trance remix" id="left-selector-input" />
+                        <button>SEARCH</button>
+                        <div id="left-crate" class="crate"></div>
+                    </div>
+                    <div id="crossfader"></div>
+                    <div id="right-player">Delete later</div>
+                    <div id="right-selector" class="selector">
+                        <input type="text" value="beverly hills cop trance remix" id="right-selector-input" />
+                        <button>SEARCH</button>
+                        <div id="right-crate" class="crate"></div>
+                    </div>
+
+		<script type="text/javascript">
+		// read the url & get the initial traxxx
+		var terminator = 'dYjWCvVDaKc';
+		starting_hash_videos = document.location.hash.split('#');
+		if(starting_hash_videos.length > 1) {
+		starting_hash_videos = starting_hash_videos[1];                        
+		start_vid_left = starting_hash_videos.split('/')[0];
+		start_vid_left = start_vid_left ? start_vid_left : terminator;
+		} else {
+		start_vid_left = terminator;
+		}
+		
+		var params = { allowScriptAccess: "always" };
+		var atts = { id: "left-player" };
+		swfobject.embedSWF("http://www.youtube.com/v/" + start_vid_left + "&enablejsapi=1&playerapiid=yt-left-player&loop=1",
+		"left-player", "425", "336", "8", null, null, params, atts);
+		
+		// read the url & get the initial traxxx
+		var axel_f = 'giIoifHUUkI';
+		starting_hash_videos = document.location.hash.split('#');
+		if(starting_hash_videos.length > 1) {
+		starting_hash_videos = starting_hash_videos[1];
+		start_vid_right = starting_hash_videos.split('/')[1];
+		start_vid_right = start_vid_right ? start_vid_right : axel_f;
+		} else {
+		start_vid_right = axel_f;
+		}
+		
+		var params = { allowScriptAccess: "always" };
+		var atts = { id: "right-player" };
+		swfobject.embedSWF("http://www.youtube.com/v/" + start_vid_right + "&enablejsapi=1&playerapiid=yt-right-player&loop=1",
+		"right-player", "425", "336", "8", null, null, params, atts);
+		</script>
+
+
+		<script src="//code.jquery.com/jquery-latest.min.js"></script>
+		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<script src="http://www.google.com/jsapi"></script> 
+		<script src="js/sexmagick.js"></script>
+
+
+	</body>
+</html>

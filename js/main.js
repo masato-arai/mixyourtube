@@ -48,6 +48,6 @@ $(window).bind("load", function() {
 	});
 	
 	// jQuery UI volume fader
-	$( "#faderSlider" ).slider();
+	$( "#faderSlider" ).slider({ value: 50 });
 
 });
