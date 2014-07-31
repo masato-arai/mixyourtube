@@ -1,23 +1,16 @@
-current_decks = {left: 'dYjWCvVDaKc',right:'9TpQCG4LtUc'}
 
 function onYouTubePlayerReady(playerId) {
     left_player = document.getElementById('left-player')
     right_player = document.getElementById('right-player')
-    
-    left_player.setVolume(100);
-    right_player.setVolume(0);
 }
 
 function load_vid(channel, video_id) {
     var player_elem = document.getElementById(channel + '-player');
     player_elem.loadVideoById(video_id);
-    current_decks[channel] = video_id;
-
-    document.location.hash = current_decks.left + '/' + current_decks.right;
 }
 
 $(function() {
-    $('#crossfader').slider({max: 200, min: 0,value: 0});
+    $('#crossfader').slider({max: 200, min: 0,value: 100});
     $('#crossfader').bind('slide', function(event, ui) {
         var left_val = Math.max(Math.min(190 - parseInt($('#crossfader').slider('option','value')), 100), 0);
         var right_val = Math.max(Math.min(parseInt($('#crossfader').slider('option','value')), 110) - 10, 0);
@@ -27,6 +20,7 @@ $(function() {
         
     });
 
+/*
     function search_loaded() {
         return true;
     }
@@ -41,22 +35,13 @@ $(function() {
             $('#left-crate').empty();            
             for(var i = 0; i<left_searcher.results.length; i++) {
                 var result = left_searcher.results[i];
-                if(result.videoType != "YouTube") {
-                    continue;
-                }
-
                 var thumb_url = result.tbUrl;
                 var video_id = result.tbUrl.split('/')[4];
                 $('#left-crate').append(
                     '<a class="crate-vid" href="javascript:void(0);" title="' + result.title + '" onclick="load_vid(\'left\',\'' + video_id + '\');"><img width="50" src="' + thumb_url + '" /></a>'
                 );
             }
-            $('#left-crate .crate-vid').hover(function() {
-                $('#left-crate-title').text($(this).attr('title'));
-            }, function() {
-                $('#left-crate-title').empty();
-            });
-
+            
             if (left_searcher.cursor) {
                 $('#left-crate').append('<div class="pages"><strong>Pages:</strong></div>');
                 var pages = left_searcher.cursor.pages;
@@ -89,21 +74,12 @@ $(function() {
             
             for(var i = 0; i<right_searcher.results.length; i++) {
                 var result = right_searcher.results[i];
-                if(result.videoType != "YouTube") {
-                    continue;
-                }
-                
                 var thumb_url = result.tbUrl;
                 var video_id = result.tbUrl.split('/')[4];
                 $('#right-crate').append(
                     '<a class="crate-vid" href="javascript:void(0);" title="' + result.title + '" onclick="load_vid(\'right\',\'' + video_id + '\');"><img width="50" src="' + thumb_url + '" /></a>'
                 );
             }
-            $('#right-crate .crate-vid').hover(function() {
-                $('#right-crate-title').text($(this).attr('title'));
-            }, function() {
-                $('#right-crate-title').empty();
-            });
             
             if (right_searcher.cursor) {
                 $('#right-crate').append('<div class="pages"><strong>Pages:</strong></div>');
@@ -155,20 +131,6 @@ $(function() {
             $('#right-selector button').click();
         }
     });
+*/
 
-    $('input[type=text]').focus(function() {
-      this.select();
-    });
-
-    $('#party').click(function() {
-      if(party) {
-        $('body').css('backgroundImage','url(purplestars.gif)');
-        $('#party').text('party');
-        party = false;
-      } else {
-        $('body').css('backgroundImage','url(party_animals_e0.gif)');
-        $('#party').text('serious');
-        party = true;
-      }
-    });
 });
