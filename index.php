@@ -1,5 +1,6 @@
+<??>
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="user-scalable=0, initial-scale=1.0">
@@ -55,7 +56,7 @@
 	<script src="js/auth.js"></script>
 	<script src="js/v2.js"></script>
 	<!-- <script src="js/fader.js"></script> -->
-	<script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+	<!-- <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script> -->
 	<script src="//www.youtube.com/iframe_api"></script>
 	<script src="js/main.js"></script>
 	

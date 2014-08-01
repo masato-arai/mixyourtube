@@ -3,10 +3,10 @@ function handleAPILoaded() {
 	$('#search-button').attr('disabled', false);
 }
 
-// Search for a specified string.
-var url = "https://gdata.youtube.com/feeds/api/videos?";
-$(function() {
 
+// Search for a specified string.
+$(function() {
+	var url = "https://gdata.youtube.com/feeds/api/videos?";
 	// Left Search List
 	$('#searchLeft').click(function() {
 		var options = {
@@ -109,6 +109,7 @@ function onYouTubePlayerAPIReady() {
 		// Left initial track
 		videoId: 's-t1tifeImw',
 		playerVars: {
+			autoplay: 0,
 			showinfo: 0,
 			modestbranding: 0,
 			controls: 0, // 0:hide 1:show(default)
@@ -120,7 +121,8 @@ function onYouTubePlayerAPIReady() {
 	playerRight = new YT.Player('playerRight', {
 		// Right initial track
 		videoId: 'd7zBePUZMog',
-		playerVars: {			
+		playerVars: {
+			autoplay: 0,
 			showinfo: 0,
 			modestbranding: 0,
 			controls: 0, // 0:hide 1:show(default)

@@ -1,5 +1,4 @@
-	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html>
     <head>
@@ -24,78 +23,46 @@
             a.page:hover {background-color: #0f0;}
         </style>
     </head>
-    <body id="THEPARTY">
+    <body>
+        <div id="left-player"></div>
+        <div id="left-selector" class="selector">
+            <input type="text" value="search" id="left-selector-input" />
+            <button>SEARCH</button>
+            <div id="left-crate" class="crate"></div>
+        </div>
 <!--
-        <table>
-            <tr valign="top">
-                <td width="40%">
-                    <div id="left-player"></div>
-                    <div id="left-selector" class="selector">
-                        <input type="text" value="search" id="left-selector-input" />
-                        <button>SEARCH</button>
-                        <div id="left-crate" class="crate"></div>
-                    </div>
-                </td>
-                <td width="20%">
-                    <div id="crossfader"></div>
-                </td>
-                <td width="40%">
-                    <div id="right-player"></div>
-                    <div id="right-selector" class="selector">
-                        <input type="text" value="nathan fake" id="right-selector-input" />
-                        <button>SEARCH</button>
-                        <div id="right-crate" class="crate"></div>
-                    </div>
-                </td>
-            </tr>
-        </table>
+        <div id="right-player"></div>
+        <div id="right-selector" class="selector">
+            <input type="text" value="nathan fake" id="right-selector-input" />
+            <button>SEARCH</button>
+            <div id="right-crate" class="crate"></div>
+        </div>
 -->
-		<div id="playerLeft"></div>
-		<div id="faderSlider"></div>
-		<div id="playerRight"></div>
-
-<!--
 		<script type="text/javascript">
 		// read the url & get the initial traxxx
 		var terminator = 's-t1tifeImw';
-		starting_hash_videos = document.location.hash.split('#');
-		if(starting_hash_videos.length > 1) {
-		starting_hash_videos = starting_hash_videos[1];                        
-		start_vid_left = starting_hash_videos.split('/')[0];
-		start_vid_left = start_vid_left ? start_vid_left : terminator;
-		} else {
-		start_vid_left = terminator;
-		}
-		
+		var axel_f = 'd7zBePUZMog';
 		var params = { allowScriptAccess: "always" };
+
+		start_vid_left = terminator;		
 		var atts = { id: "left-player" };
 		swfobject.embedSWF("http://www.youtube.com/v/" + start_vid_left + "&enablejsapi=1&playerapiid=yt-left-player&loop=1",
 		"left-player", "425", "336", "8", null, null, params, atts);
 		
+/*
 		// read the url & get the initial traxxx
-		var axel_f = 'd7zBePUZMog';
-		starting_hash_videos = document.location.hash.split('#');
-		if(starting_hash_videos.length > 1) {
-		starting_hash_videos = starting_hash_videos[1];
-		start_vid_right = starting_hash_videos.split('/')[1];
-		start_vid_right = start_vid_right ? start_vid_right : axel_f;
-		} else {
-		start_vid_right = axel_f;
-		}
-		
-		var params = { allowScriptAccess: "always" };
+		start_vid_right = axel_f;		
 		var atts = { id: "right-player" };
 		swfobject.embedSWF("http://www.youtube.com/v/" + start_vid_right + "&enablejsapi=1&playerapiid=yt-right-player&loop=1",
 		"right-player", "425", "336", "8", null, null, params, atts);
+*/
 		</script>
 
--->
 
 		<script src="//code.jquery.com/jquery-latest.min.js"></script>
 		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 		<script src="http://www.google.com/jsapi"></script> 
-		<script src="js/fader.js"></script>
-
+		<script src="js/search.js"></script>
 
 	</body>
 </html>
