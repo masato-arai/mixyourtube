@@ -36,6 +36,26 @@ $(function() {
 					).data('video-id', f['media$group']['yt$videoid']['$t'], 'video-title', f['title']['$t'])
 				);
 			}
+			// NEXT PREV buttons
+			var list = $("li.movieLeft").hide();
+			list.slice(0, 5).fadeIn();
+			var maxList = list.length;
+			var x = 5,
+				start = 0;
+			$('.next').click(function () {
+				if (start + x < maxList) {
+					list.slice(start, start + x).hide();
+					start += x;
+					list.slice(start, start + x).fadeIn();
+				}
+			});
+			$('.prev').click(function () {
+				if (start - x >= 0) {
+					list.slice(start, start + x).hide();
+					start -= x;
+					list.slice(start, start + x).fadeIn();
+				}
+			});
 		}, "json");
 	});
 	$(document).on('click', 'li.movieLeft', function() {

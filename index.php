@@ -26,6 +26,10 @@
 				<input type="text" id="qLeft" value="SEARCH">
 				<input type="button" id="searchLeft">
 				<ul class="searchListLeft">Delete later</ul>
+				<ul class="entries">
+					<li class="prev">PREV</li>
+					<li class="next">NEXT</li>
+				</ul>
 			</div><!-- End Search Left-->
 		</section>
 		<section id="searchWrapperRight">
