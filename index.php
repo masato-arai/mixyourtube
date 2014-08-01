@@ -25,9 +25,12 @@
 				<div class="cancelButton">CANCEL</div>
 				<input type="text" id="qLeft" value="SEARCH">
 				<input type="button" id="searchLeft">
-				<ul class="searchListLeft">Delete later</ul>
-				<ul class="entries">
+				<ul class="searchListLeft">
+
+				</ul>
+				<ul class="nav">
 					<li class="prev">PREV</li>
+					<li class="slash"> / </li>
 					<li class="next">NEXT</li>
 				</ul>
 			</div><!-- End Search Left-->
