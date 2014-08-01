@@ -89,13 +89,13 @@ $(function() {
 	});
 
 	// Volume Fader
-	$('#faderSlider').slider({max: 200, min: 0,value: 100});
+	$('#faderSlider').slider({max: 200, min: 0, value: 100});
 	$('#faderSlider').bind('slide', function(event, ui) {
 		var left_val = Math.max(Math.min(190 - parseInt(
-			$('#faderSlider').slider('option','value')
+			$('#faderSlider').slider('option', 'value')
 		), 100), 0);
 		var right_val = Math.max(Math.min(parseInt(
-			$('#faderSlider').slider('option','value')
+			$('#faderSlider').slider('option', 'value')
 		), 110) - 10, 0);
 		playerLeft.setVolume(left_val);
 		playerRight.setVolume(right_val);	

@@ -30,12 +30,17 @@ $(function() {
             }
             
             if (left_searcher.cursor) {
-                $('#left-crate').append('<div class="pages"></div>');
+                $('#left-crate').append(
+                	'<div class="pages"></div>'
+                );
+                $('.pages').append(
+                    '<a class="prev">' + 'PREV' + '</a>' + ' / ' + '<a class="next">' + 'NEXT' + '</a>'
+                );
                 var pages = left_searcher.cursor.pages;
                 for(var i=0; i<pages.length; i++) {
                     if(i == left_searcher.cursor.currentPageIndex) {
                         $('#left-crate .pages').append(
-                            '<span class="page">' + pages[i].label + '</a>'
+                            '<span class="page">' + pages[i].label + '</span>'
                         );
                     } else {
                         $('#left-crate .pages').append(
@@ -43,16 +48,15 @@ $(function() {
                         );
                     }
                 }
-                
-                $('#left-crate a.page').click(function() {
-                    left_searcher.gotoPage(parseInt($(this).attr('pagenum')));
+                var currentPage = $('#left-crate a.page').attr('pagenum');
+                $('a.next').click(function() {
+                    left_searcher.gotoPage(parseInt(currentPage));
+                    console.log(currentPage);
                 });
             }
-            
         });
 
         // right
-
         right_searcher = new google.search.VideoSearch();
         right_searcher.setResultSetSize(google.search.Search.LARGE_RESULTSET);
         

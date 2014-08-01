@@ -4,18 +4,19 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="user-scalable=0, initial-scale=1.0">
-	<title>mixyourtube</title>
+	<title>M - Y - I - T - H</title>
 	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Varela+Round'>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
 	<script src="js/swfobject.js"></script>
 </head>
 <body>
 	<div id="wrapper">
 		<header>
 			<section id="siteTitle">
-				<h1>/MIXYOURTUBE</h1>
+				<h1>MIX YOUTUBE IN THE HOUSE</h1>
 			</section><!-- End Site Title Section-->
 		</header><!-- End header Section-->
 		<section id="searchWrapperLeft">
