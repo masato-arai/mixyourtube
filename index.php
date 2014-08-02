@@ -25,7 +25,9 @@
 				<div class="cancelButton">CANCEL</div>
 				<input type="text" id="qLeft" value="SEARCH">
 				<input type="button" id="searchLeft">
-				<ul class="searchListLeft"></ul>
+				<ul class="searchListLeft">
+					<p class="blinkFont blinkAuto">M - Y - H</p>
+				</ul>
 				<ul class="nav"></ul>
 			</div><!-- End Search Left-->
 		</section>
@@ -35,7 +37,9 @@
 				<div class="cancelButton">CANCEL</div>
 				<input type="text" id="qRight" value="SEARCH">
 				<input type="button" id="searchRight">
-				<ul class="searchListRight"></ul>
+				<ul class="searchListRight">
+					<p class="blinkFont blinkAuto"> (っ・ω・)っ</p>
+				</ul>
 				<ul class="nav"></ul>
 			</div><!-- End Search Right-->
 		</section>

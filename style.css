@@ -168,6 +168,36 @@ ul.searchListRight {
 	height: 450px;
 }
 
+ul.searchListLeft p.blinkFont {
+	font-size: 500px;
+	letter-spacing: -0.3em;
+	line-height: 1.1em;
+}
+
+ul.searchListRight p.blinkFont {
+	font-size: 310px;
+	letter-spacing: -0.4em;
+	line-height: 1.7em;
+}
+
+.blinkAuto {
+	-webkit-animation-name: blinker;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+	
+	-moz-animation-name: blinker;
+	-moz-animation-duration: 3s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite;
+	
+	animation-name: blinker;
+	animation-duration: 3s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+
 ul.searchListLeft li,
 ul.searchListRight li {
 	cursor: pointer;
