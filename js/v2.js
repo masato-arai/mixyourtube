@@ -55,13 +55,43 @@ $(function() {
 					list.slice(start, start + x).hide();
 					start += x;
 					list.slice(start, start + x).fadeIn(500);
+					$('.prev').css({
+						'color': '#000',
+						'cursor': 'pointer'
+					});
+					$('.prev').addClass('blink');
+				} 
+				if ( start + x == maxList ) {
+					$('.next').css({
+						'color': '#ccc',
+						'cursor': 'inherit'
+					});
+					$('.next').removeClass('blink');
 				}
-			});			
+			});
+			if (start + x <= 5) {
+				$('.prev').css({
+					'color': '#ccc',
+					'cursor': 'inherit'
+				});
+				$('.next').addClass('blink');
+			}
 			$('.prev').click(function () {
 				if (start - x >= 0) {
 					list.slice(start, start + x).hide();
 					start -= x;
 					list.slice(start, start + x).fadeIn(500);
+				}
+				if ( start + x !== maxList ) {
+					$('.next').css('color', '#000');
+					$('.next').addClass('blink');
+				}
+				if (start + x <= 5) {
+					$('.prev').css({
+						'color': '#ccc',
+						'cursor': 'inherit'
+					});
+					$('.prev').removeClass('blink');
 				}
 			});
 		}, "json");
@@ -119,19 +149,48 @@ $(function() {
 			var maxList = list.length;
 			var x = 5,
 				start = 0;
-			if (0 < maxList)
 			$('.next').click(function () {
 				if (start + x < maxList) {
 					list.slice(start, start + x).hide();
 					start += x;
 					list.slice(start, start + x).fadeIn(500);
+					$('.prev').css({
+						'color': '#000',
+						'cursor': 'pointer'
+					});
+					$('.prev').addClass('blink');
+				} 
+				if ( start + x == maxList ) {
+					$('.next').css({
+						'color': '#ccc',
+						'cursor': 'inherit'
+					});
+					$('.next').removeClass('blink');
 				}
-			});			
+			});
+			if (start + x <= 5) {
+				$('.prev').css({
+					'color': '#ccc',
+					'cursor': 'inherit'
+				});
+				$('.next').addClass('blink');
+			}
 			$('.prev').click(function () {
 				if (start - x >= 0) {
 					list.slice(start, start + x).hide();
 					start -= x;
 					list.slice(start, start + x).fadeIn(500);
+				}
+				if ( start + x !== maxList ) {
+					$('.next').css('color', '#000');
+					$('.next').addClass('blink');
+				}
+				if (start + x <= 5) {
+					$('.prev').css({
+						'color': '#ccc',
+						'cursor': 'inherit'
+					});
+					$('.prev').removeClass('blink');
 				}
 			});
 		}, "json");
