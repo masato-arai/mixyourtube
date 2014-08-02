@@ -25,14 +25,8 @@
 				<div class="cancelButton">CANCEL</div>
 				<input type="text" id="qLeft" value="SEARCH">
 				<input type="button" id="searchLeft">
-				<ul class="searchListLeft">
-
-				</ul>
-				<ul class="nav">
-					<li class="prev">PREV</li>
-					<li class="slash"> / </li>
-					<li class="next">NEXT</li>
-				</ul>
+				<ul class="searchListLeft"></ul>
+				<ul class="nav"></ul>
 			</div><!-- End Search Left-->
 		</section>
 		<section id="searchWrapperRight">
@@ -41,7 +35,8 @@
 				<div class="cancelButton">CANCEL</div>
 				<input type="text" id="qRight" value="SEARCH">
 				<input type="button" id="searchRight">
-				<ul class="searchListRight">Delete later</ul>
+				<ul class="searchListRight"></ul>
+				<ul class="nav"></ul>
 			</div><!-- End Search Right-->
 		</section>
 		<section id="video">

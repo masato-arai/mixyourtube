@@ -21,7 +21,7 @@ $(function() {
 			$('.searchListLeft').empty();
 			for (var i=0; i<rs.feed.entry.length; i++) {
 				var f = rs.feed.entry[i];
-				var duration = f['media$group']['yt$duration']['seconds'];
+/* 				var duration = f['media$group']['yt$duration']['seconds']; */
 				$('.searchListLeft').append(
 					$('<li class="movieLeft">').append(
 						$('<img>').attr('src', f['media$group']['media$thumbnail'][0]['url']),
@@ -37,6 +37,13 @@ $(function() {
 					).data('video-id', f['media$group']['yt$videoid']['$t'], 'video-title', f['title']['$t'])
 				);
 			}
+			$('.searchBoxLeft ul.nav').empty();
+			$('.searchBoxLeft ul.nav').append(
+				$('<li class="prev">').text('PREV'),
+				$('<li class="slash">').text('/'),
+				$('<li class="next">').text('NEXT')
+			).fadeIn(500);
+
 			// NEXT PREV buttons
 			var list = $("li.movieLeft").hide();
 			list.slice(0, 5).fadeIn(500);
@@ -59,6 +66,7 @@ $(function() {
 			});
 		}, "json");
 	});
+	//insert video into player
 	$(document).on('click', 'li.movieLeft', function() {
 		playerLeft.cueVideoById($(this).data('video-id'));
 		playerLeft.setVolume(100);
@@ -87,7 +95,7 @@ $(function() {
 						$('<img>').attr('src', f['media$group']['media$thumbnail'][0]['url']),
 						$('<div class="youtubeInfo">').append(
 							$('<h3>').text(f['title']['$t']),
-							$('<p>').text('by ' + f['author'][0]['name']['$t'] + ' • ' + f['yt$statistics']['viewCount'] + ' views' ),
+							$('<p>').text('by ' + f['author'][0]['name']['$t'] /* + ' • ' + f['yt$statistics']['viewCount'] + ' views' */ ),
 							$('<div class="checked selected">').append(
 								$('<span data-label="selected">').append(
 									$('<img>').attr('src', 'images/searchChecked.png')
@@ -97,6 +105,35 @@ $(function() {
 					).data('video-id', f['media$group']['yt$videoid']['$t'], 'video-title', f['title']['$t'])
 				);
 			}
+
+			$('.searchBoxRight ul.nav').empty();
+			$('.searchBoxRight ul.nav').append(
+				$('<li class="prev">').text('PREV'),
+				$('<li class="slash">').text('/'),
+				$('<li class="next">').text('NEXT')
+			).fadeIn(500);
+
+			// NEXT PREV buttons
+			var list = $("li.movieRight").hide();
+			list.slice(0, 5).fadeIn(500);
+			var maxList = list.length;
+			var x = 5,
+				start = 0;
+			if (0 < maxList)
+			$('.next').click(function () {
+				if (start + x < maxList) {
+					list.slice(start, start + x).hide();
+					start += x;
+					list.slice(start, start + x).fadeIn(500);
+				}
+			});			
+			$('.prev').click(function () {
+				if (start - x >= 0) {
+					list.slice(start, start + x).hide();
+					start -= x;
+					list.slice(start, start + x).fadeIn(500);
+				}
+			});
 		}, "json");
 	});
 	$(document).on('click', 'li.movieRight', function() {
