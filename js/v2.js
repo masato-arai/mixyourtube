@@ -21,7 +21,7 @@ $(function() {
 			$('.searchListLeft').empty();
 			for (var i=0; i<rs.feed.entry.length; i++) {
 				var f = rs.feed.entry[i];
-/* 				var duration = f['media$group']['yt$duration']['seconds']; */
+				var duration = f['media$group']['yt$duration']['seconds'];
 				$('.searchListLeft').append(
 					$('<li class="movieLeft">').append(
 						$('<img>').attr('src', f['media$group']['media$thumbnail'][0]['url']),
@@ -195,6 +195,7 @@ $(function() {
 			});
 		}, "json");
 	});
+
 	$(document).on('click', 'li.movieRight', function() {
 		playerRight.cueVideoById($(this).data('video-id'));
 		playerRight.setVolume(100);
@@ -217,13 +218,28 @@ $(function() {
 		playerLeft.setVolume(left_val);
 		playerRight.setVolume(right_val);	
 	});
+	
+	// Seek Bar
+	$('.tubeLeft .seek').click(function(){
+		var seekLeftVal = $(".seekLeft").val();
+		playerLeft.seekTo(parseFloat(seekLeftVal));
+		return false;
+	});
 
 });
 
 function onYouTubePlayerAPIReady() {
+
+	var videoIdLeft = 's-t1tifeImw';
+	var videoIdRight = 'd7zBePUZMog';
+	$.getJSON('http://gdata.youtube.com/feeds/api/videos/' + videoIdLeft + '?v=2&alt=jsonc',function(data,status){
+		alert(data.data.duration);
+	});
+
+
 	playerLeft = new YT.Player('playerLeft', {
 		// Left initial track
-		videoId: 's-t1tifeImw',
+		videoId: videoIdLeft,
 		playerVars: {
 			autoplay: 0,
 			showinfo: 0,
@@ -236,7 +252,7 @@ function onYouTubePlayerAPIReady() {
 	
 	playerRight = new YT.Player('playerRight', {
 		// Right initial track
-		videoId: 'd7zBePUZMog',
+		videoId: videoIdRight,
 		playerVars: {
 			autoplay: 0,
 			showinfo: 0,
@@ -261,26 +277,4 @@ function onPlayerStateChange(e){
 }
 
 
-// Seek bar
-$(window).load(function(){
-	jQuery('#seek').click(function(){
-		playerLeft.seekTo(parseFloat($("#seekto").val()));
-		return false;
-	});
-});
 
-function setSeekSlider(maxVal) {
-	if (!maxVal) {
-		maxVal = ytplayer.getDuration();
-	}
-	seekSlider = $('.seekSlider').slider({
-		min: 0,
-		max: maxVal,
-		slide: function(event, ui) {
-			ytPlayerSeek(ui.value);
-		}
-	});
-	seekSlider.slider({
-		value: ytplayer.getCurrentTime()
-	});
-}

@@ -55,8 +55,8 @@
 		<section id="video">
 			<div class="tubeVideo tubeLeft">
 				<div class="tubeTitle tubeTitleLeft">Title Left</div>
-				<input type="text" id="seekto" value="25.5"/>
-				<a href="#" id="seek">Seek</a>
+				<input type="text" class="seekLeft" value="25.5"/>
+				<a href="#" class="seek">Seek</a>
 				<div id="playerLeft"></div>
 			</div>
 			<div class="tubeVideo tubeRight">

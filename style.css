@@ -83,7 +83,8 @@ header ul {
 	line-height: 1.4em;
 }
 
-#seekto {
+.seekLeft,
+.seekRight {
 	color: #000;
 }
 
