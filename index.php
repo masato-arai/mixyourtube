@@ -8,9 +8,18 @@
 	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Varela+Round'>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="css/jquery-ui-1.10.2.custom.min.css">
 	<link rel="stylesheet" href="style.css">
 	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
-	<script src="js/swfobject.js"></script>
+	<style>
+		.seekSlider {
+			width: 350px;
+			display: inline-block;
+		}
+		.ui-slider .ui-slider-handle {
+			width: 5px;
+		}
+	</style>
 </head>
 <body>
 	<div id="wrapper">
@@ -46,6 +55,8 @@
 		<section id="video">
 			<div class="tubeVideo tubeLeft">
 				<div class="tubeTitle tubeTitleLeft">Title Left</div>
+				<input type="text" id="seekto" value="25.5"/>
+				<a href="#" id="seek">Seek</a>
 				<div id="playerLeft"></div>
 			</div>
 			<div class="tubeVideo tubeRight">
@@ -59,12 +70,11 @@
 	</div>
 	<script src="//code.jquery.com/jquery-latest.min.js"></script>
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="//www.youtube.com/iframe_api"></script>
 	<script src="http://www.google.com/jsapi"></script> 
 	<script src="js/auth.js"></script>
+	<script src="js/swfobject.js"></script>
 	<script src="js/v2.js"></script>
-	<!-- <script src="js/fader.js"></script> -->
-	<!-- <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script> -->
-	<script src="//www.youtube.com/iframe_api"></script>
 	<script src="js/main.js"></script>
 	
 </body>

@@ -220,7 +220,6 @@ $(function() {
 
 });
 
-
 function onYouTubePlayerAPIReady() {
 	playerLeft = new YT.Player('playerLeft', {
 		// Left initial track
@@ -261,3 +260,27 @@ function onPlayerStateChange(e){
 	}
 }
 
+
+// Seek bar
+$(window).load(function(){
+	jQuery('#seek').click(function(){
+		playerLeft.seekTo(parseFloat($("#seekto").val()));
+		return false;
+	});
+});
+
+function setSeekSlider(maxVal) {
+	if (!maxVal) {
+		maxVal = ytplayer.getDuration();
+	}
+	seekSlider = $('.seekSlider').slider({
+		min: 0,
+		max: maxVal,
+		slide: function(event, ui) {
+			ytPlayerSeek(ui.value);
+		}
+	});
+	seekSlider.slider({
+		value: ytplayer.getCurrentTime()
+	});
+}

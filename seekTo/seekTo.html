@@ -1,0 +1,102 @@
+
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<link href="css/jquery-ui-1.10.2.custom.min.css" rel="stylesheet" />
+	<style>
+	.seekSlider {
+		width: 350px;
+		display: inline-block;
+	}
+	
+	.ui-slider .ui-slider-handle {
+		width: 5px;
+	}
+	</style>
+</head>
+<body>
+
+	<div id="playerLeft"></div>
+
+<!--
+	<ul>
+		<li class="tubeTitleLeft"></li>
+		<li><span class="seekSlider"></span></li>
+	</ul>
+-->
+	<span class="seekSlider"></span>
+
+	<script src="//code.jquery.com/jquery-latest.min.js"></script>
+	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="../js/swfobject.js"></script>
+
+<script>
+
+var movieId = null;
+var ytplayer = null;
+
+function embedYouTubeMovie(id) {
+	movieId = id;
+	var youtubeUrl = 'http://www.youtube.com/apiplayer?enablejsapi=1&version=3&playerapiid=ytplayer';
+	var params = { allowScriptAccess: "always" };
+	var atts = { id: "ytplayer" };
+	var flashvars = {};
+	swfobject.embedSWF(youtubeUrl, "playerLeft", "700", "393", "9", null, flashvars, params, atts);
+}
+
+function onYouTubePlayerReady(playerId) {
+	ytplayer = document.getElementById(playerId);
+	ytplayer.addEventListener('onStateChange', 'onYouTubePlayerStateChange');
+	ytplayer.cueVideoById(movieId);
+	getMovieData(movieId);
+}
+
+embedYouTubeMovie('s-t1tifeImw');
+
+//seek
+function ytPlayerSeek(sec) {
+	if (ytplayer) {
+		ytplayer.seekTo(parseInt(sec), true);
+	}
+	return false;
+}
+
+function setSeekSlider(maxVal) {
+	if (!maxVal) {
+		maxVal = ytplayer.getDuration();
+	}
+	seekSlider = $('.seekSlider').slider({
+		min: 0,
+		max: maxVal,
+		slide: function(event, ui) {
+			ytPlayerSeek(ui.value);
+		}
+	});
+	seekSlider.slider({value: ytplayer.getCurrentTime()});
+}
+
+function getMovieData(id) {
+	$.ajax({
+		url: 'http://gdata.youtube.com/feeds/api/videos/' + id + '?alt=json',
+		type: 'get',
+		dataType: 'json', 
+		timeout: 2000,
+		success: function(movieData, status) {
+			if (status === 'success') {
+				$('.tubeTitleLeft').html(movieData.entry.title.$t);
+				setSeekSlider(parseInt(movieData.entry.media$group.yt$duration.seconds));
+			}
+		},
+		error: function(XMLHttpRequest, status, errorThrown) {
+			return false;
+		}
+	});
+}
+
+</script>
+
+
+	
+</body>
+</html>

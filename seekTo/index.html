@@ -1,0 +1,352 @@
+
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="robots" content="noindex,nofollow" />
+	<link href="css/jquery-ui-1.10.2.custom.min.css" rel="stylesheet" />
+<style>
+body {
+	background: url(../img/js/youtube_player_back.jpg);
+}
+#wrapper {
+	width: 800px;
+	margin: 0 auto;
+	box-shadow: 0 1px 2px #000;
+}
+#player {
+	background: #000;
+	background: linear-gradient(to bottom, #222, #111);
+	text-align: center;
+	padding: 20px;
+}
+#controller {
+	color: #eee;
+	line-height: 30px;
+	padding: 10px;
+	background: #000;
+}
+#controller ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#controller ul:first-child {
+	margin: 0 0 10px;
+}
+#controller ul li {
+	float: left;
+}
+#controller li > a {
+	display: inline-block;
+	width: 35px;
+	line-height: 30px;
+	color: #fff;
+	background: linear-gradient(to bottom, #222, #000);
+	border: 1px solid #333;
+	border-radius: 5px;
+	margin-right: 3px;
+}
+#controller li > a:hover {
+	background: #333;
+}
+
+#movie-title {
+	width: 570px;
+	height: 30px;
+	overflow: hidden;
+}
+
+#state {
+	width: 100px;
+	font-size: .85em;
+}
+
+#seek-slider {
+	width: 450px;
+	display: inline-block;
+	margin: 0 10px 0 40px;
+	top: 3px;
+}
+
+#volume-slider {
+	width: 100px;
+	display: inline-block;
+	margin: 0 0 0 10px;
+	top: 2px;
+}
+
+.ui-widget-content {
+	border-color: #333;
+}
+
+.ui-slider .ui-slider-handle {
+	width: 15px;
+}
+
+.clearfix:after {
+	clear: both;
+	content: "";
+	display: block;
+}
+</style>
+</head>
+<body>
+
+
+
+<div id="wrapper">
+
+	<div id="player">
+		<div id="ytplayer-object"></div>
+	</div>
+
+	<div id="controller">
+		<ul class="clearfix">
+			<li id="movie-title"></li>
+			<li id="state"></li>
+			<li><span id="current-time"></span> / <span id="duration"></span></li>
+		</ul>
+
+		<ul class="clearfix">
+			<li><a href="#" onclick="return ytPlayerPlay();" class="icon-">&#xf04b;</a></li>
+			<li><a href="#" onclick="return ytPlayerPause();" class="icon-">&#xf04c;</a></li>
+			<li><a href="#" onclick="return ytPlayerMuteToggle();" class="icon-" id="toggle-mute">&#xf026;</a><span id="volume-slider"></span></li>
+			<li><span id="seek-slider"></span></li>
+		</ul>
+	</div>
+
+</div>
+
+
+	<script src="//code.jquery.com/jquery-latest.min.js"></script>
+	<script src="../js/swfobject.js"></script>
+	<script src="js/jquery-ui-1.10.2.custom.min.js"></script>
+
+
+<script>
+
+
+
+
+// 動画 ID
+var movieId = null;
+// プレイヤー
+var ytplayer = null;
+// 動画情報取得フラグ
+var haveMovieData = false;
+
+/**
+ * プレイヤーを埋め込む
+ */
+function embedYouTubeMovie(id) {
+	movieId = id;
+	var youtubeUrl = 'http://www.youtube.com/apiplayer?enablejsapi=1&version=3&playerapiid=ytplayer';
+	var params = { allowScriptAccess: "always" };
+	var atts = { id: "ytplayer" };
+	var flashvars = {};
+	swfobject.embedSWF(youtubeUrl, "ytplayer-object", "700", "393", "9", null, flashvars, params, atts);
+}
+
+/**
+ * プレイヤーが再生準備ができたら呼ばれる関数
+ */
+function onYouTubePlayerReady(playerId) {
+	ytplayer = document.getElementById(playerId);
+	// プレーヤーの状態が変わった際に発生
+	ytplayer.addEventListener('onStateChange', 'onYouTubePlayerStateChange');
+	// ytplayer.addEventListener('onError', 'onYouTubePlayerError');
+	ytplayer.cueVideoById(movieId);
+
+	setVolumeSlider();
+
+	getMovieData(movieId);
+}
+
+function onYouTubePlayerStateChange(state) {
+	// 未開始（-1）、終了（0）、再生中（1）、一時停止中（2）、バッファリング中（3）、頭出し済み（5）
+	var states = {"-1":"未開始", "0":"終了", "1":"再生中", "2":"一時停止中", "3":"バッファリング中", "5":"停止", }
+	document.getElementById('state').innerHTML = states[state];
+
+	if (state === 1) {
+		setMovieInfo();
+		currentTimeInterval = setInterval(setCurrentTime, 1000);
+	} else {
+		clearInterval(currentTimeInterval);
+	}
+}
+
+embedYouTubeMovie('v7ouW_GAv-w');
+
+/**
+ * 再生
+ */
+function ytPlayerPlay() {
+	if (ytplayer) {
+		ytplayer.playVideo();
+	}
+	return false;
+}
+
+/**
+ * 一時停止
+ */
+function ytPlayerPause() {
+	if (ytplayer) {
+		ytplayer.pauseVideo();
+	}
+	return false;
+}
+
+/**
+ * 停止
+ */
+function ytPlayerStop() {
+	if (ytplayer) {
+		ytplayer.stopVideo();
+	}
+	return false;
+}
+
+/**
+ * シーク
+ * @param integer シークする秒数
+ */
+function ytPlayerSeek(sec) {
+	if (ytplayer) {
+		ytplayer.seekTo(parseInt(sec), true);
+	}
+	return false;
+}
+
+/**
+ * ミュート切り替え
+ */
+function ytPlayerMuteToggle() {
+	if (ytplayer) {
+		// ミュートの場合は true, ではない場合は false
+		if (ytplayer.isMuted()) {
+			ytplayer.unMute();
+			$('#toggle-mute').html('&#xf028;');
+		} else {
+			ytplayer.mute();
+			$('#toggle-mute').html('&#xf026;');
+		}
+	}
+	return false;
+}
+
+/**
+ * ボリューム設定
+ * @param integer volume ボリューム ( 0 ~ 100 )
+ */
+function ytPlayerSetVolume(volume) {
+	if (ytplayer && volume >= 0 && volume <= 100) {
+		ytplayer.setVolume(volume);
+		if (volume === 0) {
+			$('#toggle-mute').html('&#xf026;');
+		} else if (volume < 50) {
+			$('#toggle-mute').html('&#xf027;');
+		} else {
+			$('#toggle-mute').html('&#xf028;');
+		}
+	}
+}
+
+function setMovieInfo(duration) {
+	if (ytplayer && !haveMovieData) {
+		currentTime = document.getElementById('current-time');
+		currentTime.innerHTML = getTimeString(ytplayer.getCurrentTime());
+		if (!duration) {
+			duration = ytplayer.getDuration();
+		}
+		document.getElementById('duration').innerHTML = getTimeString(duration);
+
+		if (!seekSlider) {
+			setSeekSlider();
+		}
+		haveMovieData = true;
+	}
+}
+
+function getTimeString(s) {
+	s = Math.ceil(s);
+	var time = ('0' + Math.floor(s / 60)).slice(-2) + ':' + ('0' + (s % 60)).slice(-2);
+	return time;
+}
+
+function setCurrentTime() {
+	var time = ytplayer.getCurrentTime();
+	currentTime.innerHTML = getTimeString(time);
+	seekSlider.slider('value', time)
+}
+
+
+
+
+function setSeekSlider(maxVal) {
+	if (!maxVal) {
+		maxVal = ytplayer.getDuration();
+	}
+	seekSlider = $('#seek-slider').slider({
+		min: 0,
+		max: maxVal,
+		slide: function(event, ui) {
+			ytPlayerSeek(ui.value);
+		}
+	});
+	seekSlider.slider({value: ytplayer.getCurrentTime()});
+}
+
+
+function setVolumeSlider() {
+	volumeSlider = $('#volume-slider').slider({
+		min: 0,
+		max: 100,
+		slide: function(event, ui) {
+			ytPlayerSetVolume(ui.value);
+		}
+	});
+	volumeSlider.slider({value: ytplayer.getVolume()});
+	ytPlayerSetVolume(ytplayer.getVolume());
+}
+
+function getMovieData(id) {
+	$.ajax({  
+		url: 'http://gdata.youtube.com/feeds/api/videos/' + id + '?alt=json',
+		type: 'get',
+		dataType: 'json', 
+		timeout: 2000,
+		success: function(movieData, status) {
+			if (status === 'success') {
+				$('#movie-title').html(movieData.entry.title.$t);
+				setSeekSlider(parseInt(movieData.entry.media$group.yt$duration.seconds));
+				setMovieInfo(parseInt(movieData.entry.media$group.yt$duration.seconds));
+			}
+		},
+		error: function(XMLHttpRequest, status, errorThrown) {
+			return false;
+		}
+	});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+	
+</body>
+</html>
