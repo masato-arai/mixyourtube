@@ -111,17 +111,47 @@ $(function() {
 			s -= m*60;
 			return h+":"+(m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s); //zero padding on minutes and seconds
 		}
-		var totalTimeLeft = secondsToHMS($(this).data('video-duration'));
-		console.log(totalTimeLeft);
+		var totalTimeLeft = $(this).data('video-duration');
+		var totalTimeLeftCal = secondsToHMS($(this).data('video-duration'));
+		var currentTimeLeft = playerLeft.getCurrentTime();
 		
 		$('.tubeTitleLeft').text($(this).data('video-title'));
-		$('.totalTimeLeft').text(totalTimeLeft);
+		$('.totalTimeLeft').text(totalTimeLeftCal);
+
+		$('.seekBarLeft').slider({max: totalTimeLeft, min: 0, value: 0});
+		$('.seekBarLeft').bind('slide', function(event, ui) {
+			var currentPositionLeft = Math.max(Math.min(190 - parseInt(
+				$('.seekBarLeft').slider('option', 'value')
+			), 100), 0);
+			playerLeft.seekTo(currentPositionLeft);
+		});
+
 
 		$("#searchWrapperLeft").animate({
 			opacity: 0
 		}, 300, function() {
 			$(this).css('visibility', 'hidden');
 		});
+		
+/*
+		$(".seekBarLeft").slider({
+			min: 0,
+			max: totalTimeLeft,
+			step: 1,
+			change: showValue,
+		});
+	
+		$(".seekBarLeft").click(function () {
+			$(".seekBarLeft").slider("option", "value", $(".seekToLeft").val());
+			var seekLeftVal = $(".seekToLeft").val();
+			playerLeft.seekTo(parseFloat(seekLeftVal));
+			return false;
+		});
+		function showValue(event, ui) {
+			$(".valLeft").html(ui.value);
+		}
+*/
+
 	});
 
 	// Right Search List
@@ -223,7 +253,7 @@ $(function() {
 		});
 	});
 
-	// Volume Fader
+	// Fader Slider
 	$('#faderSlider').slider({max: 200, min: 0, value: 100});
 	$('#faderSlider').bind('slide', function(event, ui) {
 		var left_val = Math.max(Math.min(190 - parseInt(
@@ -236,28 +266,6 @@ $(function() {
 		playerRight.setVolume(right_val);	
 	});
 	
-	// Seek Bar
-/*
-	$('.tubeLeft .seek').click(function(){
-		var seekLeftVal = $(".seekLeft").val();
-		playerLeft.seekTo(parseFloat(seekLeftVal));
-		return false;
-	});
-*/
-
-	
-	$(".seekBarLeft").slider({
-		min: 0,
-		max: 100,
-		step: 1,
-		change: showValue
-	});
-	$(".updateLeft").click(function () {
-		$(".seekBarLeft").slider("option", "value", $(".seekToLeft").val());
-	});
-	function showValue(event, ui) {
-		$(".valLeft").html(ui.value);
-	}
 });
 
 function onYouTubePlayerAPIReady() {
@@ -300,6 +308,8 @@ function onPlayerStateChange(e){
 			player.pauseVideo();
 		});
 
+		var totalTimeLeft = playerLeft.getDuration();
+
 		setInterval(function(){
 			var currentTimeLeft = playerLeft.getCurrentTime();
 			function secondsToHMS(s) {
@@ -312,9 +322,7 @@ function onPlayerStateChange(e){
 			}
 			var currentTimeLeftCal = secondsToHMS(currentTimeLeft);
 			$('.currentTimeLeft').text(currentTimeLeftCal);
-			console.log(currentTimeLeftCal);
 		}, 100);
-
 		
 	} else {
 		$(".playLeft, .playRight").on('click', function() {

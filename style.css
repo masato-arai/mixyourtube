@@ -105,6 +105,14 @@ header ul {
 	color: #000;
 }
 
+.seekBarLeft {
+	background: #333;
+	float: left;
+	height: 7px;
+	margin-top: 17px;
+	width: 57%;
+}
+
 .totalTimeLeft,
 .slashLeft,
 .currentTimeLeft {
@@ -534,7 +542,6 @@ iframe.tubeRight {
 
 .ui-state-default,
 .ui-widget-content .ui-state-default {
-	background: #fff;
 	border: none;
 	height: 30px;
 	width: 30px;
@@ -551,7 +558,6 @@ iframe.tubeRight {
 }
 
 .ui-widget-content {
-	background: #fff;
 	border: inherit;
 }
 

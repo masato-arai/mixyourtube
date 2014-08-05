@@ -26,11 +26,6 @@
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/jquery-ui-1.10.2.custom.min.css">
 	<link rel="stylesheet" href="style.css">
-	<style>
-		.seekBarLeft {
-			margin: 10px;
-		}
-	</style>
 </head>
 <body>
 	<div id="wrapper">
@@ -71,9 +66,11 @@
 				<a href="#" class="seek">Seek</a>
 -->
 				<div class="seekBarLeft"></div>
+<!--
 				<input class="seekToLeft" type="text" value="10" />
 				<input class="updateLeft" type="button" value="Update" />
 				<span class="valLeft"></span>
+-->
 				<div class="totalTimeLeft">00:00</div>
 				<div class="slashLeft"> / </div>
 				<div class="currentTimeLeft">00:00</div>
