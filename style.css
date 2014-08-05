@@ -66,8 +66,14 @@ header ul {
 	font-family: 'Varela Round', sans-serif;
 	font-size: 20px;
 	left: 0;
+	overflow: hidden;
+	white-space: nowrap;
 	width: 100%;
 	z-index: 100;
+	text-overflow: ellipsis;
+	-webkit-text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+
 }
 
 

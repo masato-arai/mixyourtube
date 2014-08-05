@@ -34,7 +34,11 @@ $(function() {
 								)
 							)
 						)
-					).data('video-id', f['media$group']['yt$videoid']['$t'], 'video-title', f['title']['$t'])
+					).data({
+						'video-id': f['media$group']['yt$videoid']['$t'],
+						'video-title': f['title']['$t'],
+						'video-duration': f['media$group']['yt$duration']['seconds']
+					})
 				);
 			}
 			$('.searchBoxLeft ul.nav').empty();
@@ -96,10 +100,13 @@ $(function() {
 			});
 		}, "json");
 	});
+
 	//insert video into player
 	$(document).on('click', 'li.movieLeft', function() {
 		playerLeft.cueVideoById($(this).data('video-id'));
+		console.log($(this).data('video-duration'));
 		playerLeft.setVolume(100);
+		$('.tubeTitleLeft').text($(this).data('video-title'));
 		$("#searchWrapperLeft").animate({
 			opacity: 0
 		}, 300, function() {
@@ -230,16 +237,15 @@ $(function() {
 
 function onYouTubePlayerAPIReady() {
 
-	var videoIdLeft = 's-t1tifeImw';
-	var videoIdRight = 'd7zBePUZMog';
-	$.getJSON('http://gdata.youtube.com/feeds/api/videos/' + videoIdLeft + '?v=2&alt=jsonc',function(data,status){
-		alert(data.data.duration);
+	var initialVideoLeft = 's-t1tifeImw';
+	var initialVideoRight = 'd7zBePUZMog';
+	$.getJSON('http://gdata.youtube.com/feeds/api/videos/' + initialVideoLeft + '?v=2&alt=jsonc',function(data,status){
 	});
 
 
 	playerLeft = new YT.Player('playerLeft', {
 		// Left initial track
-		videoId: videoIdLeft,
+		videoId: initialVideoLeft,
 		playerVars: {
 			autoplay: 0,
 			showinfo: 0,
@@ -252,7 +258,7 @@ function onYouTubePlayerAPIReady() {
 	
 	playerRight = new YT.Player('playerRight', {
 		// Right initial track
-		videoId: videoIdRight,
+		videoId: initialVideoRight,
 		playerVars: {
 			autoplay: 0,
 			showinfo: 0,

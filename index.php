@@ -54,7 +54,7 @@
 		</section>
 		<section id="video">
 			<div class="tubeVideo tubeLeft">
-				<div class="tubeTitle tubeTitleLeft">Title Left</div>
+				<div class="tubeTitle tubeTitleLeft">--------</div>
 				<input type="text" class="seekLeft" value="25.5"/>
 				<a href="#" class="seek">Seek</a>
 				<div id="playerLeft"></div>
