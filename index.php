@@ -1,16 +1,31 @@
 <??>
+<!--
+      ___           ___           ___           ___                       ___           ___           ___           ___     
+     /\  \         /\  \         /\__\         /\__\          ___        /\  \         /\__\         /\__\         /\  \    
+    /::\  \       /::\  \       /:/  /        /:/  /         /\  \       \:\  \       /:/  /        /:/  /        /::\  \   
+   /:/\ \  \     /:/\:\  \     /:/__/        /:/__/          \:\  \       \:\  \     /:/__/        /:/  /        /:/\:\  \  
+  _\:\~\ \  \   /::\~\:\  \   /::\__\____   /::\__\____      /::\__\      /::\  \   /::\  \ ___   /:/  /  ___   /::\~\:\__\ 
+ /\ \:\ \ \__\ /:/\:\ \:\__\ /:/\:::::\__\ /:/\:::::\__\  __/:/\/__/     /:/\:\__\ /:/\:\  /\__\ /:/__/  /\__\ /:/\:\ \:|__|
+ \:\ \:\ \/__/ \:\~\:\ \/__/ \/_|:|~~|~    \/_|:|~~|~    /\/:/  /       /:/  \/__/ \/__\:\/:/  / \:\  \ /:/  / \:\~\:\/:/  /
+  \:\ \:\__\    \:\ \:\__\      |:|  |        |:|  |     \::/__/       /:/  /           \::/  /   \:\  /:/  /   \:\ \::/  / 
+   \:\/:/  /     \:\ \/__/      |:|  |        |:|  |      \:\__\       \/__/            /:/  /     \:\/:/  /     \:\/:/  /  
+    \::/  /       \:\__\        |:|  |        |:|  |       \/__/                       /:/  /       \::/  /       \::/__/   
+     \/__/         \/__/         \|__|         \|__|                                   \/__/         \/__/         ~~       
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="user-scalable=0, initial-scale=1.0">
 	<title>- M - Y - H</title>
+	<meta name="description" content="Mingle to mix all your favorites and favorites tunes for making tiny casual dance floor in your living room">
 	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Varela+Round'>
-	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/jquery-ui-1.10.2.custom.min.css">
 	<link rel="stylesheet" href="style.css">
-	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
 	<style>
 		.seekSlider {
 			width: 350px;
@@ -26,13 +41,13 @@
 		<header>
 			<section id="siteTitle">
 				<h1>MIX YOUTUBE IN THE HOUSE</h1>
-			</section><!-- End Site Title Section-->
+			</section>
 		</header><!-- End header Section-->
 		<section id="searchWrapperLeft">
 			<div class="searchCancel"></div>
 			<div class="searchBoxLeft">
 				<div class="cancelButton">CANCEL</div>
-				<input type="text" id="qLeft" value="SEARCH">
+				<input type="text" id="qLeft" value="SEARCH" onClick="this.setSelectionRange(0, this.value.length)">
 				<input type="button" id="searchLeft">
 				<ul class="searchListLeft">
 					<p class="blinkFont blinkAuto">M - Y - H</p>
@@ -55,8 +70,11 @@
 		<section id="video">
 			<div class="tubeVideo tubeLeft">
 				<div class="tubeTitle tubeTitleLeft">--------</div>
-				<input type="text" class="seekLeft" value="25.5"/>
+				<!--
+<input type="text" class="seekLeft" value="25.5"/>
 				<a href="#" class="seek">Seek</a>
+-->
+				<div class="seekLeft"></div>
 				<div id="playerLeft"></div>
 			</div>
 			<div class="tubeVideo tubeRight">
@@ -66,8 +84,9 @@
 		</section><!-- End Video Section-->
 		<section id="controller">
 			<div id="faderSlider"></div>
-		</section>
-	</div>
+		</section><!-- End Fader Controller Section-->
+	</div><!-- End #Wrapper-->
+	
 	<script src="//code.jquery.com/jquery-latest.min.js"></script>
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="//www.youtube.com/iframe_api"></script>

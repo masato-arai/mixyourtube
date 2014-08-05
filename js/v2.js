@@ -21,13 +21,12 @@ $(function() {
 			$('.searchListLeft').empty();
 			for (var i=0; i<rs.feed.entry.length; i++) {
 				var f = rs.feed.entry[i];
-				var duration = f['media$group']['yt$duration']['seconds'];
 				$('.searchListLeft').append(
 					$('<li class="movieLeft">').append(
 						$('<img>').attr('src', f['media$group']['media$thumbnail'][0]['url']),
 						$('<div class="youtubeInfo">').append(
 							$('<h3>').text(f['title']['$t']),
-							$('<p>').text('by ' + f['author'][0]['name']['$t'] /* + ' • ' + f['yt$statistics']['viewCount'] + ' views'  */ /* + ' • ' + minutes  */),
+							$('<p>').text('by ' + f['author'][0]['name']['$t'] + ' • ' + f['media$group']['yt$duration']['seconds'] /* + ' • ' + f['yt$statistics']['viewCount'] + ' views' */),
 							$('<div class="checked selected">').append(
 								$('<span data-label="selected">').append(
 									$('<img>').attr('src', 'images/searchChecked.png')
@@ -101,12 +100,14 @@ $(function() {
 		}, "json");
 	});
 
-	//insert video into player
+	//insert video into playerLeft
 	$(document).on('click', 'li.movieLeft', function() {
 		playerLeft.cueVideoById($(this).data('video-id'));
-		console.log($(this).data('video-duration'));
 		playerLeft.setVolume(100);
+		playerLeft.getCurrentTime();
+		console.log($(this).data('video-duration'));
 		$('.tubeTitleLeft').text($(this).data('video-title'));
+		
 		$("#searchWrapperLeft").animate({
 			opacity: 0
 		}, 300, function() {
