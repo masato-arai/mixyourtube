@@ -513,10 +513,10 @@ ul.searchListRight li:hover .checked span {
 .tubeVideo iframe {
 	border: none;
 	position: absolute;
-	top: 100px;
+	top: 170px;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	height: 82.4%;
 }
 
 iframe.tubeLeft {
