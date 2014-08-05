@@ -252,7 +252,6 @@ function onYouTubePlayerAPIReady() {
 	$.getJSON('http://gdata.youtube.com/feeds/api/videos/' + initialVideoLeft + '?v=2&alt=jsonc',function(data,status){
 	});
 
-
 	playerLeft = new YT.Player('playerLeft', {
 		// Left initial track
 		videoId: initialVideoLeft,
@@ -285,6 +284,23 @@ function onPlayerStateChange(e){
 		$(".playLeft, .playRight").on('click', function() {
 			player.pauseVideo();
 		});
+
+		setInterval(function(){
+			var currentTimeLeft = playerLeft.getCurrentTime();
+			function secondsToHMS(s) {
+				var h = Math.floor(s/3600); //Get whole hours
+				s -= h*3600;
+				var m = Math.floor(s/60); //Get remaining minutes
+				s -= m*60;
+				var s = Math.floor(s);
+				return h+":"+(m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s); //zero padding on minutes and seconds
+			}
+			var currentTimeLeftCal = secondsToHMS(currentTimeLeft);
+			$('.currentTimeLeft').text(currentTimeLeftCal);
+			console.log(currentTimeLeftCal);
+		}, 500);
+
+		
 	} else {
 		$(".playLeft, .playRight").on('click', function() {
 			player.playVideo();
@@ -292,5 +308,21 @@ function onPlayerStateChange(e){
 	}
 }
 
+/*
+playerLeft = document.getElementById(".playerLeft");
+playerLeft.getCurrentTime();
+console.log(currentTimeLeft);
+*/
+
+/*
+function onPlay(event) {
+	window.setInterval(function() {
+		currentTimeLeft = setInterval(function () {
+			$('.currentTimeLeft').text(currentTimeLeft);
+		}, 500); 
+		console.log(currentTimeLeft);
+	});
+}
+*/
 
 
