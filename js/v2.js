@@ -26,7 +26,7 @@ $(function() {
 						$('<img>').attr('src', f['media$group']['media$thumbnail'][0]['url']),
 						$('<div class="youtubeInfo">').append(
 							$('<h3>').text(f['title']['$t']),
-							$('<p>').text('by ' + f['author'][0]['name']['$t'] + ' • ' + f['media$group']['yt$duration']['seconds'] /* + ' • ' + f['yt$statistics']['viewCount'] + ' views' */),
+							$('<p>').text('by ' + f['author'][0]['name']['$t'] /* + ' • ' + f['media$group']['yt$duration']['seconds'] */ /* + ' • ' + f['yt$statistics']['viewCount'] + ' views' */),
 							$('<div class="checked selected">').append(
 								$('<span data-label="selected">').append(
 									$('<img>').attr('src', 'images/searchChecked.png')
@@ -104,22 +104,19 @@ $(function() {
 	$(document).on('click', 'li.movieLeft', function() {
 		playerLeft.cueVideoById($(this).data('video-id'));
 		playerLeft.setVolume(100);
-
-		console.log($(this).data('video-duration'));
-		
-		function secondsTimeSpanToHMS(s) {
+		function secondsToHMS(s) {
 			var h = Math.floor(s/3600); //Get whole hours
 			s -= h*3600;
 			var m = Math.floor(s/60); //Get remaining minutes
 			s -= m*60;
 			return h+":"+(m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s); //zero padding on minutes and seconds
 		}
-
-		var totalTimeLeft = secondsTimeSpanToHMS($(this).data('video-duration'));
+		var totalTimeLeft = secondsToHMS($(this).data('video-duration'));
 		console.log(totalTimeLeft);
-
+		
 		$('.tubeTitleLeft').text($(this).data('video-title'));
 		$('.totalTimeLeft').text(totalTimeLeft);
+
 		$("#searchWrapperLeft").animate({
 			opacity: 0
 		}, 300, function() {

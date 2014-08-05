@@ -105,12 +105,24 @@ header ul {
 	color: #000;
 }
 
-.totalTimeLeft {
+.totalTimeLeft,
+.slashLeft,
+.currentTimeLeft {
 	float: right;
-	font-size: 18px;
 	font-weight: 100;
 	letter-spacing: .06em;
 	margin: 10px 0 0 0;
+}
+
+.totalTimeLeft,
+.currentTimeLeft {
+	font-size: 18px;
+}
+
+.slashLeft {
+	font-size: 16px;
+	line-height: 2.7em;
+	margin: 0 4px;
 }
 
 /************
