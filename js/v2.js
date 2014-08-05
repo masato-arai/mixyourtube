@@ -104,10 +104,22 @@ $(function() {
 	$(document).on('click', 'li.movieLeft', function() {
 		playerLeft.cueVideoById($(this).data('video-id'));
 		playerLeft.setVolume(100);
-		playerLeft.getCurrentTime();
+
 		console.log($(this).data('video-duration'));
-		$('.tubeTitleLeft').text($(this).data('video-title'));
 		
+		function secondsTimeSpanToHMS(s) {
+			var h = Math.floor(s/3600); //Get whole hours
+			s -= h*3600;
+			var m = Math.floor(s/60); //Get remaining minutes
+			s -= m*60;
+			return h+":"+(m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s); //zero padding on minutes and seconds
+		}
+
+		var totalTimeLeft = secondsTimeSpanToHMS($(this).data('video-duration'));
+		console.log(totalTimeLeft);
+
+		$('.tubeTitleLeft').text($(this).data('video-title'));
+		$('.totalTimeLeft').text(totalTimeLeft);
 		$("#searchWrapperLeft").animate({
 			opacity: 0
 		}, 300, function() {

@@ -75,6 +75,7 @@
 				<a href="#" class="seek">Seek</a>
 -->
 				<div class="seekLeft"></div>
+				<div class="totalTimeLeft">00:00</div>
 				<div id="playerLeft"></div>
 			</div>
 			<div class="tubeVideo tubeRight">
