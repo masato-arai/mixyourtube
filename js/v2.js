@@ -237,12 +237,27 @@ $(function() {
 	});
 	
 	// Seek Bar
+/*
 	$('.tubeLeft .seek').click(function(){
 		var seekLeftVal = $(".seekLeft").val();
 		playerLeft.seekTo(parseFloat(seekLeftVal));
 		return false;
 	});
+*/
 
+	
+	$(".seekBarLeft").slider({
+		min: 0,
+		max: 100,
+		step: 1,
+		change: showValue
+	});
+	$(".updateLeft").click(function () {
+		$(".seekBarLeft").slider("option", "value", $(".seekToLeft").val());
+	});
+	function showValue(event, ui) {
+		$(".valLeft").html(ui.value);
+	}
 });
 
 function onYouTubePlayerAPIReady() {
@@ -298,7 +313,7 @@ function onPlayerStateChange(e){
 			var currentTimeLeftCal = secondsToHMS(currentTimeLeft);
 			$('.currentTimeLeft').text(currentTimeLeftCal);
 			console.log(currentTimeLeftCal);
-		}, 500);
+		}, 100);
 
 		
 	} else {

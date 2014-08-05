@@ -27,12 +27,8 @@
 	<link rel="stylesheet" href="css/jquery-ui-1.10.2.custom.min.css">
 	<link rel="stylesheet" href="style.css">
 	<style>
-		.seekSlider {
-			width: 350px;
-			display: inline-block;
-		}
-		.ui-slider .ui-slider-handle {
-			width: 5px;
+		.seekBarLeft {
+			margin: 10px;
 		}
 	</style>
 </head>
@@ -74,7 +70,10 @@
 <input type="text" class="seekLeft" value="25.5"/>
 				<a href="#" class="seek">Seek</a>
 -->
-				<div class="seekLeft"></div>
+				<div class="seekBarLeft"></div>
+				<input class="seekToLeft" type="text" value="10" />
+				<input class="updateLeft" type="button" value="Update" />
+				<span class="valLeft"></span>
 				<div class="totalTimeLeft">00:00</div>
 				<div class="slashLeft"> / </div>
 				<div class="currentTimeLeft">00:00</div>
