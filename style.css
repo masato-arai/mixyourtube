@@ -527,6 +527,17 @@ iframe.tubeRight {
 	border-left: 1px solid #000;
 }
 
+#video .ui-state-default,
+#video .ui-widget-content .ui-state-default {
+	background: #ccc;
+	height: 7px;
+	width: 10px;
+}
+
+#video .ui-slider-horizontal .ui-slider-handle {
+	top: 0;
+	margin-left: 0;
+}
 
 /*
 	Controller Section

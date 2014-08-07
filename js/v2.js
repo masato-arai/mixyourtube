@@ -120,12 +120,12 @@ $(function() {
 
 		$('.seekBarLeft').slider({max: totalTimeLeft, min: 0, value: 0});
 		$('.seekBarLeft').bind('slide', function(event, ui) {
-			var currentPositionLeft = Math.max(Math.min(190 - parseInt(
+			var currentPositionLeft = Math.max(Math.min(parseInt(
 				$('.seekBarLeft').slider('option', 'value')
-			), 100), 0);
+			), totalTimeLeft - 10), 0);
 			playerLeft.seekTo(currentPositionLeft);
+			console.log(currentPositionLeft);
 		});
-
 
 		$("#searchWrapperLeft").animate({
 			opacity: 0
@@ -309,6 +309,8 @@ function onPlayerStateChange(e){
 		});
 
 		var totalTimeLeft = playerLeft.getDuration();
+		var totalBytesLeft = playerLeft.getVideoBytesTotal();
+		var startBytesLeft = playerLeft.getVideoStartBytes();
 
 		setInterval(function(){
 			var currentTimeLeft = playerLeft.getCurrentTime();
