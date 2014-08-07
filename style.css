@@ -100,6 +100,10 @@ header ul {
 	line-height: 1.4em;
 }
 
+.tubeControlLeft {
+	margin-top: 14px;
+}
+
 .seekLeft,
 .seekRight {
 	color: #000;
@@ -108,9 +112,21 @@ header ul {
 .seekBarLeft {
 	background: #333;
 	float: left;
-	height: 7px;
-	margin-top: 17px;
+	height: 8px;
+	margin-top: 8px;
 	width: 57%;
+}
+
+#video .ui-state-default,
+#video .ui-widget-content .ui-state-default {
+	background: #ccc;
+	height: 8px;
+	width: 20px;
+}
+
+#video .ui-slider-horizontal .ui-slider-handle {
+	margin-left: 0;
+	top: 0;
 }
 
 .totalTimeLeft,
@@ -119,7 +135,6 @@ header ul {
 	float: right;
 	font-weight: 100;
 	letter-spacing: .06em;
-	margin: 10px 0 0 0;
 }
 
 .totalTimeLeft,
@@ -129,7 +144,7 @@ header ul {
 
 .slashLeft {
 	font-size: 16px;
-	line-height: 2.7em;
+	line-height: 1.4em;
 	margin: 0 4px;
 }
 
@@ -527,17 +542,6 @@ iframe.tubeRight {
 	border-left: 1px solid #000;
 }
 
-#video .ui-state-default,
-#video .ui-widget-content .ui-state-default {
-	background: #ccc;
-	height: 7px;
-	width: 10px;
-}
-
-#video .ui-slider-horizontal .ui-slider-handle {
-	top: 0;
-	margin-left: 0;
-}
 
 /*
 	Controller Section

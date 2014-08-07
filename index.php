@@ -61,19 +61,12 @@
 		<section id="video">
 			<div class="tubeVideo tubeLeft">
 				<div class="tubeTitle tubeTitleLeft">--------</div>
-				<!--
-<input type="text" class="seekLeft" value="25.5"/>
-				<a href="#" class="seek">Seek</a>
--->
-				<div class="seekBarLeft"></div>
-<!--
-				<input class="seekToLeft" type="text" value="10" />
-				<input class="updateLeft" type="button" value="Update" />
-				<span class="valLeft"></span>
--->
-				<div class="totalTimeLeft">00:00</div>
-				<div class="slashLeft"> / </div>
-				<div class="currentTimeLeft">00:00</div>
+				<div class="tubeControlLeft">
+					<div class="seekBarLeft"></div>
+					<div class="totalTimeLeft">00:00</div>
+					<div class="slashLeft"> / </div>
+					<div class="currentTimeLeft">00:00</div>
+				</div>
 				<div id="playerLeft"></div>
 			</div>
 			<div class="tubeVideo tubeRight">

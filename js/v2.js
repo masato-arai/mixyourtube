@@ -109,7 +109,7 @@ $(function() {
 			s -= h*3600;
 			var m = Math.floor(s/60); //Get remaining minutes
 			s -= m*60;
-			return h+":"+(m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s); //zero padding on minutes and seconds
+			return h+":"+(m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s - 1); //zero padding on minutes and seconds
 		}
 		var totalTimeLeft = $(this).data('video-duration');
 		var totalTimeLeftCal = secondsToHMS($(this).data('video-duration'));
@@ -118,7 +118,15 @@ $(function() {
 		$('.tubeTitleLeft').text($(this).data('video-title'));
 		$('.totalTimeLeft').text(totalTimeLeftCal);
 
-		$('.seekBarLeft').slider({max: totalTimeLeft, min: 0, value: 0});
+		$('.seekBarLeft').slider({
+			max: totalTimeLeft,
+			min: 0,
+			value: 0,
+			animate: true,
+			slide: function( event, ui ) {
+				$( 'value' ).html( ui.value );
+			}
+		});
 		$('.seekBarLeft').bind('slide', function(event, ui) {
 			var currentPositionLeft = Math.max(Math.min(parseInt(
 				$('.seekBarLeft').slider('option', 'value')
