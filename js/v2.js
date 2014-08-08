@@ -3,6 +3,7 @@ function handleAPILoaded() {
 	$('#search-button').attr('disabled', false);
 }
 
+// Time culculator
 function secondsToHMS(s) {
 	var h = Math.floor(s/3600); //Get whole hours
 	s -= h*3600;
@@ -33,7 +34,7 @@ $(function() {
 			'v': 2
 		};
 		$.get(url, options, function(rs) {
-			console.log(rs);
+			//console.log(rs);
 			$('.searchListLeft').empty();
 			for (var i=0; i<rs.feed.entry.length; i++) {
 				var f = rs.feed.entry[i];
@@ -65,7 +66,7 @@ $(function() {
 				$('<li class="next">').text('NEXT')
 			).fadeIn(500);
 
-			// NEXT PREV buttons
+			// NEXT & PREV button
 			var list = $("li.movieLeft").hide();
 			list.slice(0, 5).fadeIn(500);
 			var maxList = list.length;
@@ -118,7 +119,7 @@ $(function() {
 		}, "json");
 	});
 
-	//insert video into playerLeft
+	// Insert video into playerLeft
 	$(document).on('click', 'li.movieLeft', function() {
 		playerLeft.cueVideoById($(this).data('video-id'));
 		playerLeft.setVolume(100);
@@ -140,7 +141,7 @@ $(function() {
 		$('.seekBarLeft').bind('slide', function(event, ui) {
 			var currentPositionLeft = Math.max(Math.min(parseInt(
 				$('.seekBarLeft').slider('option','value')
-			), totalTimeLeft - 2), 0);
+			), totalTimeLeft + 100), 0);
 			console.log(currentPositionLeft);
 			playerLeft.seekTo(currentPositionLeft);
 		});
@@ -150,7 +151,11 @@ $(function() {
 		}, 300, function() {
 			$(this).css('visibility', 'hidden');
 		});
-		
+
+		var ControlWidth = $( '.tubeControlLeft' ).width();
+		var ControlTimeWidth = $( '.timeLeft' ).width();
+		$('.seekBarLeft').css('width', (ControlWidth - ControlTimeWidth) - 10);
+
 	});
 
 	// Right Search List
@@ -189,7 +194,7 @@ $(function() {
 				$('<li class="next">').text('NEXT')
 			).fadeIn(500);
 
-			// NEXT PREV buttons
+			// NEXT & PREV button
 			var list = $("li.movieRight").hide();
 			list.slice(0, 5).fadeIn(500);
 			var maxList = list.length;
@@ -268,11 +273,9 @@ $(function() {
 });
 
 function onYouTubePlayerAPIReady() {
-
 	var initialVideoLeft = 's-t1tifeImw';
 	var initialVideoRight = 'd7zBePUZMog';
-	$.getJSON('http://gdata.youtube.com/feeds/api/videos/' + initialVideoLeft + '?v=2&alt=jsonc',function(data,status){
-	});
+	//$.getJSON('http://gdata.youtube.com/feeds/api/videos/' + initialVideoLeft + '?v=2&alt=jsonc');
 
 	playerLeft = new YT.Player('playerLeft', {
 		// Left initial track
@@ -306,19 +309,21 @@ function onPlayerStateChange(e){
 		$(".playLeft, .playRight").on('click', function() {
 			player.pauseVideo();
 		});
-
 		var totalTimeLeft = playerLeft.getDuration();
-
 		setInterval(function(){
 			var currentTimeLeft = playerLeft.getCurrentTime();
 			var currentTimeLeftCal = secondsToHMS(currentTimeLeft);
 			$('.currentTimeLeft').text(currentTimeLeftCal);
 			$('.seekBarLeft').bind('value', currentTimeLeft);
-			var perLeft = (currentTimeLeft/totalTimeLeft)*100;
-			$('#video .ui-state-default, #video .ui-widget-content .ui-state-default').css('width', perLeft + '%');
+
+			var seekLeftCurrentPer = 100*currentTimeLeft/totalTimeLeft;
+			$('#video .ui-state-default').css('width', seekLeftCurrentPer + '%');
 			
+			// Flexible width seek bar and time
+			var ControlWidth = $('.tubeControlLeft').width();
+			var ControlTimeWidth = $('.timeLeft').width();
+			$('.seekBarLeft').css('width', (ControlWidth - ControlTimeWidth) - 10);
 		}, 100);
-		
 	} else {
 		$(".playLeft, .playRight").on('click', function() {
 			player.playVideo();

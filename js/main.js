@@ -49,5 +49,5 @@ $(window).bind("load", function() {
 	
 	// jQuery UI volume fader
 	$( "#faderSlider" ).slider({ value: 100 });
-
+	
 });

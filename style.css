@@ -114,7 +114,7 @@ header ul {
 	float: left;
 	height: 6px;
 	margin-top: 8px;
-	width: 57%;
+	width: 0;
 }
 
 #video .ui-state-default,
@@ -127,6 +127,12 @@ header ul {
 #video .ui-slider-horizontal .ui-slider-handle {
 	margin-left: 0;
 	top: 0;
+	left: 0 !important;
+}
+
+.timeLeft {
+	float: right;
+	max-width: 40%;
 }
 
 .totalTimeLeft,
