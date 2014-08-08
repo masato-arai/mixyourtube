@@ -21,12 +21,21 @@ $(function() {
 			$('.searchListLeft').empty();
 			for (var i=0; i<rs.feed.entry.length; i++) {
 				var f = rs.feed.entry[i];
+				function secondsToHMS(s) {
+					var h = Math.floor(s/3600); //Get whole hours
+					s -= h*3600;
+					var m = Math.floor(s/60); //Get remaining minutes
+					s -= m*60;
+					return h+":"+(m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s - 1); //zero padding on minutes and seconds
+				}
+				var totalTimeLeftCal = secondsToHMS($(this).data('video-duration'));
+
 				$('.searchListLeft').append(
 					$('<li class="movieLeft">').append(
 						$('<img>').attr('src', f['media$group']['media$thumbnail'][0]['url']),
 						$('<div class="youtubeInfo">').append(
 							$('<h3>').text(f['title']['$t']),
-							$('<p>').text('by ' + f['author'][0]['name']['$t'] /* + ' • ' + f['media$group']['yt$duration']['seconds'] */ /* + ' • ' + f['yt$statistics']['viewCount'] + ' views' */),
+							$('<p>').text('by ' + f['author'][0]['name']['$t'] + ' • ' + secondsToHMS(f['media$group']['yt$duration']['seconds']) /* + ' • ' + f['yt$statistics']['viewCount'] + ' views' */),
 							$('<div class="checked selected">').append(
 								$('<span data-label="selected">').append(
 									$('<img>').attr('src', 'images/searchChecked.png')
@@ -121,18 +130,13 @@ $(function() {
 		$('.seekBarLeft').slider({
 			max: totalTimeLeft,
 			min: 0,
-			value: 0,
-			animate: true,
-			slide: function( event, ui ) {
-				$( 'value' ).html( ui.value );
-			}
+			value: 0
 		});
 		$('.seekBarLeft').bind('slide', function(event, ui) {
 			var currentPositionLeft = Math.max(Math.min(parseInt(
 				$('.seekBarLeft').slider('option', 'value')
-			), totalTimeLeft - 10), 0);
+			), totalTimeLeft - 2), 0);
 			playerLeft.seekTo(currentPositionLeft);
-			console.log(currentPositionLeft);
 		});
 
 		$("#searchWrapperLeft").animate({
@@ -141,25 +145,6 @@ $(function() {
 			$(this).css('visibility', 'hidden');
 		});
 		
-/*
-		$(".seekBarLeft").slider({
-			min: 0,
-			max: totalTimeLeft,
-			step: 1,
-			change: showValue,
-		});
-	
-		$(".seekBarLeft").click(function () {
-			$(".seekBarLeft").slider("option", "value", $(".seekToLeft").val());
-			var seekLeftVal = $(".seekToLeft").val();
-			playerLeft.seekTo(parseFloat(seekLeftVal));
-			return false;
-		});
-		function showValue(event, ui) {
-			$(".valLeft").html(ui.value);
-		}
-*/
-
 	});
 
 	// Right Search List
@@ -317,8 +302,6 @@ function onPlayerStateChange(e){
 		});
 
 		var totalTimeLeft = playerLeft.getDuration();
-		var totalBytesLeft = playerLeft.getVideoBytesTotal();
-		var startBytesLeft = playerLeft.getVideoStartBytes();
 
 		setInterval(function(){
 			var currentTimeLeft = playerLeft.getCurrentTime();
@@ -332,6 +315,10 @@ function onPlayerStateChange(e){
 			}
 			var currentTimeLeftCal = secondsToHMS(currentTimeLeft);
 			$('.currentTimeLeft').text(currentTimeLeftCal);
+			$('.seekBarLeft').bind('value', currentTimeLeft);
+			var perLeft = (currentTimeLeft/totalTimeLeft)*100;
+			$('#video .ui-state-default, #video .ui-widget-content .ui-state-default').css('width', perLeft + '%');
+			
 		}, 100);
 		
 	} else {
@@ -340,22 +327,4 @@ function onPlayerStateChange(e){
 		});
 	}
 }
-
-/*
-playerLeft = document.getElementById(".playerLeft");
-playerLeft.getCurrentTime();
-console.log(currentTimeLeft);
-*/
-
-/*
-function onPlay(event) {
-	window.setInterval(function() {
-		currentTimeLeft = setInterval(function () {
-			$('.currentTimeLeft').text(currentTimeLeft);
-		}, 500); 
-		console.log(currentTimeLeft);
-	});
-}
-*/
-
 
