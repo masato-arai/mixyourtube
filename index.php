@@ -63,9 +63,11 @@
 				<div class="tubeTitle tubeTitleLeft">--------</div>
 				<div class="tubeControlLeft">
 					<div class="seekBarLeft"></div>
-					<div class="totalTimeLeft">00:00</div>
-					<div class="slashLeft"> / </div>
-					<div class="currentTimeLeft">00:00</div>
+					<div class = "timeLeft">
+						<div class="totalTimeLeft">0:00</div>
+						<div class="slashLeft"> / </div>
+						<div class="currentTimeLeft">0:00</div>
+					</div>
 				</div>
 				<div id="playerLeft"></div>
 			</div>

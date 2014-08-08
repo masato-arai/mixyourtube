@@ -121,6 +121,7 @@ header ul {
 #video .ui-widget-content .ui-state-default {
 	background: #999;
 	height: 6px;
+	width: 0;
 }
 
 #video .ui-slider-horizontal .ui-slider-handle {

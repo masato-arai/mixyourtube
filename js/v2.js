@@ -3,6 +3,22 @@ function handleAPILoaded() {
 	$('#search-button').attr('disabled', false);
 }
 
+function secondsToHMS(s) {
+	var h = Math.floor(s/3600); //Get whole hours
+	s -= h*3600;
+	var m = Math.floor(s/60); //Get remaining minutes
+	s -= m*60;
+	var s = Math.floor(s);
+	if(h == 0){
+		if(m < 10) {
+			return m+":"+(s < 10 ? '0'+s : s); //zero padding on minutes and seconds
+		} else {
+			return (m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s); //zero padding on minutes and seconds
+		}
+	} else {
+		return h+":"+(m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s); //zero padding on minutes and seconds
+	}
+}
 
 // Search for a specified string.
 $(function() {
@@ -21,13 +37,6 @@ $(function() {
 			$('.searchListLeft').empty();
 			for (var i=0; i<rs.feed.entry.length; i++) {
 				var f = rs.feed.entry[i];
-				function secondsToHMS(s) {
-					var h = Math.floor(s/3600); //Get whole hours
-					s -= h*3600;
-					var m = Math.floor(s/60); //Get remaining minutes
-					s -= m*60;
-					return h+":"+(m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s - 1); //zero padding on minutes and seconds
-				}
 				var totalTimeLeftCal = secondsToHMS($(this).data('video-duration'));
 
 				$('.searchListLeft').append(
@@ -35,7 +44,7 @@ $(function() {
 						$('<img>').attr('src', f['media$group']['media$thumbnail'][0]['url']),
 						$('<div class="youtubeInfo">').append(
 							$('<h3>').text(f['title']['$t']),
-							$('<p>').text('by ' + f['author'][0]['name']['$t'] + ' • ' + secondsToHMS(f['media$group']['yt$duration']['seconds']) /* + ' • ' + f['yt$statistics']['viewCount'] + ' views' */),
+							$('<p>').text('by ' + f['author'][0]['name']['$t'] + ' • ' + secondsToHMS(f['media$group']['yt$duration']['seconds'] - 1)),
 							$('<div class="checked selected">').append(
 								$('<span data-label="selected">').append(
 									$('<img>').attr('src', 'images/searchChecked.png')
@@ -45,7 +54,7 @@ $(function() {
 					).data({
 						'video-id': f['media$group']['yt$videoid']['$t'],
 						'video-title': f['title']['$t'],
-						'video-duration': f['media$group']['yt$duration']['seconds']
+						'video-duration': f['media$group']['yt$duration']['seconds'] - 1
 					})
 				);
 			}
@@ -113,13 +122,6 @@ $(function() {
 	$(document).on('click', 'li.movieLeft', function() {
 		playerLeft.cueVideoById($(this).data('video-id'));
 		playerLeft.setVolume(100);
-		function secondsToHMS(s) {
-			var h = Math.floor(s/3600); //Get whole hours
-			s -= h*3600;
-			var m = Math.floor(s/60); //Get remaining minutes
-			s -= m*60;
-			return h+":"+(m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s - 1); //zero padding on minutes and seconds
-		}
 		var totalTimeLeft = $(this).data('video-duration');
 		var totalTimeLeftCal = secondsToHMS($(this).data('video-duration'));
 		var currentTimeLeft = playerLeft.getCurrentTime();
@@ -130,12 +132,16 @@ $(function() {
 		$('.seekBarLeft').slider({
 			max: totalTimeLeft,
 			min: 0,
-			value: 0
+			value: 0,
+			slide: function( event, ui ) {
+				$( "#slider-value" ).html( ui.value );
+			}
 		});
 		$('.seekBarLeft').bind('slide', function(event, ui) {
 			var currentPositionLeft = Math.max(Math.min(parseInt(
-				$('.seekBarLeft').slider('option', 'value')
+				$('.seekBarLeft').slider('option','value')
 			), totalTimeLeft - 2), 0);
+			console.log(currentPositionLeft);
 			playerLeft.seekTo(currentPositionLeft);
 		});
 
@@ -305,14 +311,6 @@ function onPlayerStateChange(e){
 
 		setInterval(function(){
 			var currentTimeLeft = playerLeft.getCurrentTime();
-			function secondsToHMS(s) {
-				var h = Math.floor(s/3600); //Get whole hours
-				s -= h*3600;
-				var m = Math.floor(s/60); //Get remaining minutes
-				s -= m*60;
-				var s = Math.floor(s);
-				return h+":"+(m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s); //zero padding on minutes and seconds
-			}
 			var currentTimeLeftCal = secondsToHMS(currentTimeLeft);
 			$('.currentTimeLeft').text(currentTimeLeftCal);
 			$('.seekBarLeft').bind('value', currentTimeLeft);
