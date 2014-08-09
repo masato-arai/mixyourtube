@@ -344,11 +344,9 @@ function onPlayerStateChange(e){
 		$(".playLeft, .playRight").on('click', function() {
 			player.pauseVideo();
 		});
-
-		var totalTimeLeft = playerLeft.getDuration();
-		var totalTimeRight = playerRight.getDuration();
 		setInterval(function(){
 			// leftPlayer
+			var totalTimeLeft = playerLeft.getDuration();
 			var currentTimeLeft = playerLeft.getCurrentTime();
 			var currentTimeLeftCal = secondsToHMS(currentTimeLeft);
 			$('.currentTimeLeft').text(currentTimeLeftCal);
@@ -364,6 +362,7 @@ function onPlayerStateChange(e){
 			$('.seekBarLeft').css('width', (ControlLeftWidth - ControlTimeLeftWidth) - 10);
 
 			// rightPlayer
+			var totalTimeRight = playerRight.getDuration();
 			var currentTimeRight = playerRight.getCurrentTime();
 			var currentTimeRightCal = secondsToHMS(currentTimeRight);
 			$('.currentTimeRight').text(currentTimeRightCal);
@@ -377,13 +376,10 @@ function onPlayerStateChange(e){
 			var ControlRightWidth = $('.tubeControlRight').width();
 			var ControlTimeRightWidth = $('.timeRight').width();
 			$('.seekBarRight').css('width', (ControlRightWidth - ControlTimeRightWidth) - 10);
-
-		}, 100);
-		
+		}, 1000);
 	} else {
 		$(".playLeft, .playRight").on('click', function() {
 			player.playVideo();
 		});
 	}
 }
-
