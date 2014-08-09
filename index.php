@@ -50,7 +50,7 @@
 			<div class="searchCancel"></div>
 			<div class="searchBoxRight">
 				<div class="cancelButton">CANCEL</div>
-				<input type="text" id="qRight" value="SEARCH">
+				<input type="text" id="qRight" value="SEARCH" onClick="this.setSelectionRange(0, this.value.length)">
 				<input type="button" id="searchRight">
 				<ul class="searchListRight">
 					<p class="blinkFont blinkAuto"> (っ・ω・)っ</p>
@@ -60,7 +60,7 @@
 		</section>
 		<section id="video">
 			<div class="tubeVideo tubeLeft">
-				<div class="tubeTitle tubeTitleLeft">--------</div>
+				<div class="tubeTitle tubeTitleLeft">////////////////////////////////////////</div>
 				<div class="tubeControlLeft">
 					<div class="seekBarLeft"></div>
 					<div class = "timeLeft">
@@ -72,7 +72,15 @@
 				<div id="playerLeft"></div>
 			</div>
 			<div class="tubeVideo tubeRight">
-				<div class="tubeTitle tubeTitleRight">Title Right</div>
+				<div class="tubeTitle tubeTitleRight">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
+				<div class="tubeControlRight">
+					<div class="seekBarRight"></div>
+					<div class = "timeRight">
+						<div class="totalTimeRight">0:00</div>
+						<div class="slashRight"> / </div>
+						<div class="currentTimeRight">0:00</div>
+					</div>
+				</div>
 				<div id="playerRight"></div>
 			</div>
 		</section><!-- End Video Section-->
@@ -84,7 +92,7 @@
 	<script src="//code.jquery.com/jquery-latest.min.js"></script>
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="//www.youtube.com/iframe_api"></script>
-	<script src="http://www.google.com/jsapi"></script> 
+	<script src="//www.google.com/jsapi"></script> 
 	<script src="js/auth.js"></script>
 	<script src="js/swfobject.js"></script>
 	<script src="js/v2.js"></script>

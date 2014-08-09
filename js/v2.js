@@ -142,7 +142,7 @@ $(function() {
 			var currentPositionLeft = Math.max(Math.min(parseInt(
 				$('.seekBarLeft').slider('option','value')
 			), totalTimeLeft + 100), 0);
-			console.log(currentPositionLeft);
+			//console.log(currentPositionLeft);
 			playerLeft.seekTo(currentPositionLeft);
 		});
 
@@ -168,25 +168,31 @@ $(function() {
 			'v': 2
 		};
 		$.get(url, options, function(rs) {
+			//console.log(rs);
 			$('.searchListRight').empty();
 			for (var i=0; i<rs.feed.entry.length; i++) {
 				var f = rs.feed.entry[i];
+				var totalTimeRightCal = secondsToHMS($(this).data('video-duration'));
+
 				$('.searchListRight').append(
 					$('<li class="movieRight">').append(
 						$('<img>').attr('src', f['media$group']['media$thumbnail'][0]['url']),
 						$('<div class="youtubeInfo">').append(
 							$('<h3>').text(f['title']['$t']),
-							$('<p>').text('by ' + f['author'][0]['name']['$t'] /* + ' • ' + f['yt$statistics']['viewCount'] + ' views' */ ),
+							$('<p>').text('by ' + f['author'][0]['name']['$t'] + ' • ' + secondsToHMS(f['media$group']['yt$duration']['seconds'] - 1)),
 							$('<div class="checked selected">').append(
 								$('<span data-label="selected">').append(
 									$('<img>').attr('src', 'images/searchChecked.png')
 								)
 							)
 						)
-					).data('video-id', f['media$group']['yt$videoid']['$t'], 'video-title', f['title']['$t'])
+					).data({
+						'video-id': f['media$group']['yt$videoid']['$t'],
+						'video-title': f['title']['$t'],
+						'video-duration': f['media$group']['yt$duration']['seconds'] - 1
+					})
 				);
 			}
-
 			$('.searchBoxRight ul.nav').empty();
 			$('.searchBoxRight ul.nav').append(
 				$('<li class="prev">').text('PREV'),
@@ -247,14 +253,43 @@ $(function() {
 		}, "json");
 	});
 
+	// Insert video into playerRight
 	$(document).on('click', 'li.movieRight', function() {
 		playerRight.cueVideoById($(this).data('video-id'));
 		playerRight.setVolume(100);
+		var totalTimeRight = $(this).data('video-duration');
+		var totalTimeRightCal = secondsToHMS($(this).data('video-duration'));
+		var currentTimeRight = playerRight.getCurrentTime();
+		
+		$('.tubeTitleRight').text($(this).data('video-title'));
+		$('.totalTimeRight').text(totalTimeRightCal);
+
+		$('.seekBarRight').slider({
+			max: totalTimeRight,
+			min: 0,
+			value: 0,
+			slide: function( event, ui ) {
+				$( "#slider-value" ).html( ui.value );
+			}
+		});
+		$('.seekBarRight').bind('slide', function(event, ui) {
+			var currentPositionRight = Math.max(Math.min(parseInt(
+				$('.seekBarRight').slider('option','value')
+			), totalTimeRight + 100), 0);
+			//console.log(currentPositionRight);
+			playerRight.seekTo(currentPositionRight);
+		});
+
 		$("#searchWrapperRight").animate({
 			opacity: 0
 		}, 300, function() {
 			$(this).css('visibility', 'hidden');
 		});
+
+		var ControlWidth = $( '.tubeControlRight' ).width();
+		var ControlTimeWidth = $( '.timeRight' ).width();
+		$('.seekBarRight').css('width', (ControlWidth - ControlTimeWidth) - 10);
+
 	});
 
 	// Fader Slider
@@ -309,21 +344,42 @@ function onPlayerStateChange(e){
 		$(".playLeft, .playRight").on('click', function() {
 			player.pauseVideo();
 		});
+
 		var totalTimeLeft = playerLeft.getDuration();
+		var totalTimeRight = playerRight.getDuration();
 		setInterval(function(){
+			// leftPlayer
 			var currentTimeLeft = playerLeft.getCurrentTime();
 			var currentTimeLeftCal = secondsToHMS(currentTimeLeft);
 			$('.currentTimeLeft').text(currentTimeLeftCal);
 			$('.seekBarLeft').bind('value', currentTimeLeft);
 
+			// seekBar width calculate & percentage
 			var seekLeftCurrentPer = 100*currentTimeLeft/totalTimeLeft;
-			$('#video .ui-state-default').css('width', seekLeftCurrentPer + '%');
+			$('.seekBarLeft .ui-state-default').css('width', seekLeftCurrentPer + '%');
 			
 			// Flexible width seek bar and time
-			var ControlWidth = $('.tubeControlLeft').width();
-			var ControlTimeWidth = $('.timeLeft').width();
-			$('.seekBarLeft').css('width', (ControlWidth - ControlTimeWidth) - 10);
+			var ControlLeftWidth = $('.tubeControlLeft').width();
+			var ControlTimeLeftWidth = $('.timeLeft').width();
+			$('.seekBarLeft').css('width', (ControlLeftWidth - ControlTimeLeftWidth) - 10);
+
+			// rightPlayer
+			var currentTimeRight = playerRight.getCurrentTime();
+			var currentTimeRightCal = secondsToHMS(currentTimeRight);
+			$('.currentTimeRight').text(currentTimeRightCal);
+			$('.seekBarRight').bind('value', currentTimeRight);
+
+			// seekBar width calculate & percentage
+			var seekRightCurrentPer = 100*currentTimeRight/totalTimeRight;
+			$('.seekBarRight .ui-state-default').css('width', seekRightCurrentPer + '%');
+			
+			// Flexible width seek bar and time
+			var ControlRightWidth = $('.tubeControlRight').width();
+			var ControlTimeRightWidth = $('.timeRight').width();
+			$('.seekBarRight').css('width', (ControlRightWidth - ControlTimeRightWidth) - 10);
+
 		}, 100);
+		
 	} else {
 		$(".playLeft, .playRight").on('click', function() {
 			player.playVideo();

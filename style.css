@@ -100,7 +100,8 @@ header ul {
 	line-height: 1.4em;
 }
 
-.tubeControlLeft {
+.tubeControlLeft,
+.tubeControlRight {
 	margin-top: 14px;
 }
 
@@ -109,12 +110,14 @@ header ul {
 	color: #000;
 }
 
-.seekBarLeft {
+.seekBarLeft,
+.seekBarRight {
 	background: #333;
+	border-radius: 5px;
 	float: left;
 	height: 6px;
 	margin-top: 8px;
-	width: 0;
+	width: 73%;
 }
 
 #video .ui-state-default,
@@ -130,25 +133,32 @@ header ul {
 	left: 0 !important;
 }
 
-.timeLeft {
+.timeLeft,
+.timeRight {
 	float: right;
 	max-width: 40%;
 }
 
 .totalTimeLeft,
 .slashLeft,
-.currentTimeLeft {
+.currentTimeLeft,
+.totalTimeRight,
+.slashRight,
+.currentTimeRight {
 	float: right;
 	font-weight: 100;
 	letter-spacing: .06em;
 }
 
 .totalTimeLeft,
-.currentTimeLeft {
+.currentTimeLeft,
+.totalTimeRight,
+.currentTimeRight {
 	font-size: 18px;
 }
 
-.slashLeft {
+.slashLeft,
+.slashRight {
 	font-size: 16px;
 	line-height: 1.4em;
 	margin: 0 4px;
