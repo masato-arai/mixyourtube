@@ -127,8 +127,21 @@ $(function() {
 		var totalTimeLeftCal = secondsToHMS($(this).data('video-duration'));
 		var currentTimeLeft = playerLeft.getCurrentTime();
 		
+		var cssTotalTimeLeft = $('<div class="totalTimeLeft"></div>');
+		var cssSlashLeft = $('<div class="slashLeft"></div>');
+		var cssCurrentTimeLeft = $('<div class="currentTimeLeft"></div>');
+		
+		$('.timeLeft').empty();
+		$('.seekBarLeft').after(
+			$('<div class="timeLeft">').append(
+				cssTotalTimeLeft.text(totalTimeLeftCal),
+				cssSlashLeft.text(' / '),
+				cssCurrentTimeLeft.text('0:00')
+			)
+		)
+
 		$('.tubeTitleLeft').text($(this).data('video-title'));
-		$('.totalTimeLeft').text(totalTimeLeftCal);
+		//$('.totalTimeLeft').text(totalTimeLeftCal);
 
 		$('.seekBarLeft').slider({
 			max: totalTimeLeft,
@@ -145,7 +158,6 @@ $(function() {
 			//console.log(currentPositionLeft);
 			playerLeft.seekTo(currentPositionLeft);
 		});
-
 		$("#searchWrapperLeft").animate({
 			opacity: 0
 		}, 300, function() {
@@ -261,6 +273,18 @@ $(function() {
 		var totalTimeRightCal = secondsToHMS($(this).data('video-duration'));
 		var currentTimeRight = playerRight.getCurrentTime();
 		
+		var cssTotalTimeRight = $('<div class="totalTimeRight"></div>');
+		var cssSlashRight = $('<div class="slashRight"></div>');
+		var cssCurrentTimeRight = $('<div class="currentTimeRight"></div>');
+		$('.timeRight').empty();
+		$('.seekBarRight').after(
+			$('<div class="timeRight">').append(
+				cssTotalTimeRight.text(totalTimeRightCal),
+				cssSlashRight.text(' / '),
+				cssCurrentTimeRight.text('0:00')
+			)
+		)
+
 		$('.tubeTitleRight').text($(this).data('video-title'));
 		$('.totalTimeRight').text(totalTimeRightCal);
 
@@ -308,15 +332,36 @@ $(function() {
 });
 
 function onYouTubePlayerAPIReady() {
-	var initialVideoLeft = 's-t1tifeImw';
-	var initialVideoRight = 'd7zBePUZMog';
-	//$.getJSON('http://gdata.youtube.com/feeds/api/videos/' + initialVideoLeft + '?v=2&alt=jsonc');
+
+	var numInitialVideo = 9;
+	var randomInitial = Math.ceil(numInitialVideo * Math.random());
+	switch(randomInitial) {
+		case 1: initialVideo =  'yGBIMyc6uck';
+		break;
+		case 2: initialVideo = 'eiYcBP258lE';
+		break;
+		case 3: initialVideo =  'NWaodSpCMZg';
+		break;
+		case 4: initialVideo = '9mkL1BuYMx4';
+		break;
+		case 5: initialVideo =  '40JxymeRIPQ';
+		break;
+		case 6: initialVideo = 'q_leCgXgYho';
+		break;
+		case 7: initialVideo =  'iXzy_h73Sd8';
+		break;
+		case 8: initialVideo = 'peF3IkcSMtg';
+		break;
+		case 9: initialVideo =  'S-rDKwx--8I';
+		break;
+		default: initialVideo = "";
+	}
 
 	playerLeft = new YT.Player('playerLeft', {
 		// Left initial track
-		videoId: initialVideoLeft,
+		videoId: initialVideo,
 		playerVars: {
-			autoplay: 0,
+			autoplay: 1,
 			showinfo: 0,
 			modestbranding: 0,
 			controls: 0, // 0:hide 1:show(default)
@@ -327,9 +372,9 @@ function onYouTubePlayerAPIReady() {
 	
 	playerRight = new YT.Player('playerRight', {
 		// Right initial track
-		videoId: initialVideoRight,
+		videoId: initialVideo,
 		playerVars: {
-			autoplay: 0,
+			autoplay: 1,
 			showinfo: 0,
 			modestbranding: 0,
 			controls: 0, // 0:hide 1:show(default)

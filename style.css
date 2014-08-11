@@ -32,8 +32,43 @@ li {
 	list-style: none;
 }
 
+/*
+.preloadAnimation {
+	background: url(images.preload.gif);
+	width: 100%;
+	height: 100%;
+	position: fixed;
+}
+*/
+
+#loader {
+	width: 500px;
+	height: 500px;
+	display: none;
+	position: fixed;
+	_position: absolute; /* IE6対策 */
+	top: 50%;
+	left: 50%;
+	margin-top: -250px; /* heightの半分のマイナス値 */
+	margin-left: -250px; /* widthの半分のマイナス値 */
+	z-index: 100;
+}
+
+#fade {
+	width: 100%;
+	height: 100%;
+	display: none;
+	background-color: #FFFFFF;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 50;
+}
+
+
 #wrapper {
 	color: #fff;
+	display: none;
 	height: 100%;
 	margin-top: -310px;
 	position: fixed;
@@ -117,7 +152,7 @@ header ul {
 	float: left;
 	height: 6px;
 	margin-top: 8px;
-	width: 73%;
+	width: 100%;
 }
 
 #video .ui-state-default,
@@ -127,10 +162,15 @@ header ul {
 	width: 0;
 }
 
+.ui-slider-handle {
+	cursor: pointer;
+}
+
 #video .ui-slider-horizontal .ui-slider-handle {
+	cursor: pointer;
+	left: 0 !important;
 	margin-left: 0;
 	top: 0;
-	left: 0 !important;
 }
 
 .timeLeft,
@@ -601,6 +641,7 @@ iframe.tubeRight {
 }
 
 #faderSlider.ui-slider-horizontal .ui-slider-handle {
+	cursor: pointer;
 	top: inherit;
 }
 

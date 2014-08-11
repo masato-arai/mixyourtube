@@ -18,7 +18,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="user-scalable=0, initial-scale=1.0">
-	<title>M - Y - H</title>
+	<title>- M - Y - H -</title>
 	<meta name="description" content="Mingle to mix all your favorites and favorites tunes for making tiny casual dance floor in your living room">
 	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Varela+Round'>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
@@ -28,6 +28,11 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<div id="loader">
+		<img src="images/preload.gif" width="500px" height="500px" alt="Loading..." />
+	</div>
+	<div id="fade"></div>
+
 	<div id="wrapper">
 		<header>
 			<section id="siteTitle">
@@ -60,26 +65,16 @@
 		</section>
 		<section id="video">
 			<div class="tubeVideo tubeLeft">
-				<div class="tubeTitle tubeTitleLeft">////////////////////////////////////////</div>
+				<div class="tubeTitle tubeTitleLeft">--------------------------------------------</div>
 				<div class="tubeControlLeft">
 					<div class="seekBarLeft"></div>
-					<div class = "timeLeft">
-						<div class="totalTimeLeft">0:00</div>
-						<div class="slashLeft"> / </div>
-						<div class="currentTimeLeft">0:00</div>
-					</div>
 				</div>
 				<div id="playerLeft"></div>
 			</div>
 			<div class="tubeVideo tubeRight">
-				<div class="tubeTitle tubeTitleRight">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
+				<div class="tubeTitle tubeTitleRight">--------------------------------------------</div>
 				<div class="tubeControlRight">
 					<div class="seekBarRight"></div>
-					<div class = "timeRight">
-						<div class="totalTimeRight">0:00</div>
-						<div class="slashRight"> / </div>
-						<div class="currentTimeRight">0:00</div>
-					</div>
 				</div>
 				<div id="playerRight"></div>
 			</div>
