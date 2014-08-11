@@ -29,7 +29,7 @@
 </head>
 <body>
 	<div id="loader">
-		<img src="images/preload.gif" width="500px" height="500px" alt="Loading..." />
+		<img src="images/preload.gif" width="100px" height="100px" alt="Loading..." />
 	</div>
 	<div id="fade"></div>
 

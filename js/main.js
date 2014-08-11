@@ -1,11 +1,5 @@
-/*
-window.onload=function(){
-	$('#wrapper').fadeIn(1500);
-}
-*/
-
 $('body').append(
-	'<style type="text/css">#container { display: none; } #fade, #loader { display: block; }</style>'
+	'<style type="text/css"> #wrapper { display: none; } #fade, #loader { display: block; }	</style>'
 );
 
 jQuery.event.add(window,"load",function() { // 全ての読み込み完了後に呼ばれる関数
